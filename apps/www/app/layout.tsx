@@ -68,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen antialiased bg-slate-50 dark:bg-black text-slate-900 dark:text-white">
+      <body className="min-h-screen font-sans antialiased bg-slate-50 dark:bg-black text-slate-900 dark:text-white">
         {children}
         <Analytics />
       </body>

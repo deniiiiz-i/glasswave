@@ -3,6 +3,14 @@
 @source "../lib";
 @source "./src";
 
+@theme {
+  /* Inter is preferred but not bundled — consumers load it themselves
+     (next/font, @fontsource/inter, etc.); otherwise system fonts apply */
+  --font-sans:
+    "Inter", "Inter Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+}
+
 @layer components {
   /* 1px gradient edge, lit from the top — masked so only the ring is visible */
   .glass-edge::before {

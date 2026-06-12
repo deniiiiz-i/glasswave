@@ -1,0 +1,73 @@
+---
+title: Theming
+description: Dark mode, typography, and customizing the look of Glasswave.
+---
+
+## Dark mode
+
+Glasswave automatically adapts to the user's browser theme (light or dark).
+There is no manual theme switcher, as theming is handled through Tailwind CSS using `dark:` modifiers.
+
+If you want to control the theme manually (e.g. with a theme toggle), override Tailwind's `dark` variant in your CSS so it follows a class instead of the system preference:
+
+```css title="app/globals.css"
+@import "glasswave/styles";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+Then toggle the `dark` class on the `<html>` element — all Glasswave components will follow.
+
+## Typography
+
+Glasswave is designed for the [Inter](https://rsms.me/inter/) typeface, but does not bundle it. The library declares Inter as the preferred sans-serif family with system fallbacks:
+
+```css
+@theme {
+  --font-sans: "Inter", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+```
+
+If Inter is loaded on your page it is picked up automatically; otherwise components fall back to system fonts. No extra network requests are made by the library.
+
+### Loading Inter
+
+With Next.js, use `next/font` — the font is self-hosted and served from your own domain:
+
+```tsx title="app/layout.tsx"
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={inter.className}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Outside of Next.js, any method works — for example [Fontsource](https://fontsource.org/fonts/inter):
+
+```sh
+npm install @fontsource-variable/inter
+```
+
+```tsx
+import "@fontsource-variable/inter";
+```
+
+### Using a different font
+
+Override `--font-sans` in your own `@theme` block after the Glasswave import:
+
+```css title="app/globals.css"
+@import "glasswave/styles";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+}
+```
