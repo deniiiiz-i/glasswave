@@ -35,9 +35,9 @@ export function Combobox({
   options,
   value,
   onValueChange,
-  placeholder = "Выберите…",
-  searchPlaceholder = "Поиск…",
-  emptyText = "Ничего не найдено.",
+  placeholder = "Select…",
+  searchPlaceholder = "Search…",
+  emptyText = "No results found.",
   className,
   disabled,
 }: ComboboxProps) {
