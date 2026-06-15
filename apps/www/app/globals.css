@@ -1,6 +1,11 @@
 @import "glasswave/styles";
 @import "tailwindcss";
 
+/* Drive `dark:` utilities from a `.dark` class (set by next-themes) instead of
+   the OS `prefers-color-scheme` default, so the header toggle can switch the
+   theme at runtime. Applies to library utilities too — both are compiled here. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }

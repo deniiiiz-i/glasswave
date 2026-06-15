@@ -2,10 +2,10 @@
 
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 

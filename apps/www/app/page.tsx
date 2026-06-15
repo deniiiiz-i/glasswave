@@ -1,5 +1,5 @@
+import { Badge, Button, Card, CardContent } from "glasswave";
 import Link from "next/link";
-import { Button, Badge, Card, CardContent } from "glasswave";
 
 export default function Home() {
   return (

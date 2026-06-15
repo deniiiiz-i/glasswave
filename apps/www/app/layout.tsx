@@ -8,6 +8,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -67,10 +69,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen font-sans antialiased bg-slate-50 dark:bg-black text-slate-900 dark:text-white">
-        {children}
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SiteHeader />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

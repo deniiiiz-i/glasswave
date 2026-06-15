@@ -1,6 +1,6 @@
 "use client";
 
-import { Popover, PopoverTrigger, PopoverContent, Button } from "glasswave";
+import { Button, Popover, PopoverContent, PopoverTrigger } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function PopoverPreview() {

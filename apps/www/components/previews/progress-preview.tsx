@@ -1,8 +1,8 @@
 "use client";
 
 import { Progress } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { useEffect, useState } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function ProgressPreview() {
   const [progress, setProgress] = useState(13);

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { AspectRatio } from "glasswave";
+import Image from "next/image";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function AspectRatioPreview() {

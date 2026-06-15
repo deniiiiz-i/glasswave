@@ -5,7 +5,7 @@ export const siteConfig = {
   ogImage: "https://glasswave-ui.vercel.app/og.png",
   links: {
     twitter: "https://twitter.com/deniiiiz_i",
-    github: "https://github.com/cilions/glasswave",
+    github: "https://github.com/deniiiiz-i/glasswave",
   },
   author: "Deniz",
 };

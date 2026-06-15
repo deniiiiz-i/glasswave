@@ -1,8 +1,8 @@
 "use client";
 
 import { Calendar } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { useState } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function CalendarPreview() {
   const [date, setDate] = useState<Date | undefined>(new Date());

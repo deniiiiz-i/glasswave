@@ -12,8 +12,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { Home, Settings } from "lucide-react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function SidebarPreview() {
   return (

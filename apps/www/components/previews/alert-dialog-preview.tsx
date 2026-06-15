@@ -2,16 +2,16 @@
 
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+  Button,
 } from "glasswave";
-import { Button } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function AlertDialogPreview() {

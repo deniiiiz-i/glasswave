@@ -1,12 +1,12 @@
 "use client";
 
-import { ToggleGroup, ToggleGroupItem } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import {
   FontBoldIcon,
   FontItalicIcon,
   UnderlineIcon,
 } from "@radix-ui/react-icons";
+import { ToggleGroup, ToggleGroupItem } from "glasswave";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function ToggleGroupPreview() {
   return (

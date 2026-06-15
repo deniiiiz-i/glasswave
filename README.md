@@ -8,4 +8,4 @@ Visit https://glasswave-ui.vercel.app/docs to view the documentation.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/cilions/glasswave/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/deniiiiz-i/glasswave/blob/main/LICENSE).

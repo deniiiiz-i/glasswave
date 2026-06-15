@@ -28,6 +28,7 @@ export { HoverCardPreview } from "./hover-card-preview";
 export { InputGroupPreview } from "./input-group-preview";
 export { InputOTPPreview } from "./input-otp-preview";
 export { InputPreview } from "./input-preview";
+export { IntroPreview } from "./intro-preview";
 export { ItemPreview } from "./item-preview";
 export { KbdPreview } from "./kbd-preview";
 export { LabelPreview } from "./label-preview";

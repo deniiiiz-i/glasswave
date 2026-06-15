@@ -1,6 +1,6 @@
 "use client";
 
-import { Toast, Button } from "glasswave";
+import { Button, Toast } from "glasswave";
 import { useState } from "react";
 import { ComponentPreview } from "@/components/component-preview";
 

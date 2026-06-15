@@ -9,8 +9,8 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { Inbox } from "lucide-react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function EmptyPreview() {
   return (

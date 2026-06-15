@@ -1,6 +1,6 @@
 "use client";
 
-import { Alert, AlertTitle, AlertDescription } from "glasswave";
+import { Alert, AlertDescription, AlertTitle } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function AlertPreview() {

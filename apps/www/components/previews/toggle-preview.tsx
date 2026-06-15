@@ -1,8 +1,8 @@
 "use client";
 
+import { FontBoldIcon } from "@radix-ui/react-icons";
 import { Toggle } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
-import { FontBoldIcon } from "@radix-ui/react-icons";
 
 export function TogglePreview() {
   return (
