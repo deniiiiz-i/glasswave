@@ -1,16 +1,15 @@
 import fs from "fs";
-import path from "path";
+import { Button } from "glasswave";
+import matter from "gray-matter";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import path from "path";
 import { getMDXComponents } from "@/components/docs/mdx-components";
 import * as previews from "@/components/previews";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "glasswave";
-
-import matter from "gray-matter";
 import { siteConfig } from "@/lib/site-config";
-import type { Metadata } from "next";
 
 const contentDir = path.join(process.cwd(), "content");
 

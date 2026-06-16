@@ -1,8 +1,8 @@
 "use client";
 
 import { DatePicker } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { useState } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function DatePickerPreview() {
   const [date, setDate] = useState<Date | undefined>();

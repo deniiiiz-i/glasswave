@@ -2,9 +2,9 @@
 
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 

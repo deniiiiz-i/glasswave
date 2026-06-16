@@ -1,15 +1,15 @@
 "use client";
 
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
 } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 

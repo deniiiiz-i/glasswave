@@ -1,14 +1,14 @@
 "use client";
 
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-  Button,
-} from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import {
+  Button,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "glasswave";
 import { useState } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function CollapsiblePreview() {
   const [isOpen, setIsOpen] = useState(false);

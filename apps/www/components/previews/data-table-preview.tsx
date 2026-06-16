@@ -1,8 +1,8 @@
 "use client";
 
-import { DataTable, dataTableSortHeader, type ColumnDef } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
+import { type ColumnDef, DataTable, dataTableSortHeader } from "glasswave";
 import { useMemo } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 type Row = { id: string; name: string; status: string };
 

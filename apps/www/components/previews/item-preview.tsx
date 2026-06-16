@@ -7,8 +7,8 @@ import {
   ItemMedia,
   ItemTitle,
 } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { User } from "lucide-react";
+import { ComponentPreview } from "@/components/component-preview";
 
 export function ItemPreview() {
   return (

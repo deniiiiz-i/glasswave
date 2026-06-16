@@ -1,6 +1,6 @@
 "use client";
 
-import { Tooltip, Button } from "glasswave";
+import { Button, Tooltip } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function TooltipPreview() {

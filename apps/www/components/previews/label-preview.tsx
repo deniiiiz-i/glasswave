@@ -1,6 +1,6 @@
 "use client";
 
-import { Label, Checkbox } from "glasswave";
+import { Checkbox, Label } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function LabelPreview() {

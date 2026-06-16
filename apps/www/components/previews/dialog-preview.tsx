@@ -1,15 +1,15 @@
 "use client";
 
 import {
+  Button,
   Dialog,
-  DialogTrigger,
+  DialogClose,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
   DialogDescription,
   DialogFooter,
-  DialogClose,
-  Button,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   Input,
   Label,
 } from "glasswave";

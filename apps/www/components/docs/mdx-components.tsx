@@ -1,6 +1,6 @@
+import { Separator } from "glasswave";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { Separator } from "glasswave";
 import type { ComponentPropsWithoutRef } from "react";
 
 export function getMDXComponents(): MDXComponents {

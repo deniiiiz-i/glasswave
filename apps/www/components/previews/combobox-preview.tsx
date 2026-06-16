@@ -1,8 +1,8 @@
 "use client";
 
 import { Combobox } from "glasswave";
-import { ComponentPreview } from "@/components/component-preview";
 import { useState } from "react";
+import { ComponentPreview } from "@/components/component-preview";
 
 const options = [
   { value: "next", label: "Next.js" },

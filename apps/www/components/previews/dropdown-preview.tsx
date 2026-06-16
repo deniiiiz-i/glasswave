@@ -1,13 +1,13 @@
 "use client";
 
 import {
+  Button,
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  Button,
+  DropdownMenuTrigger,
 } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 

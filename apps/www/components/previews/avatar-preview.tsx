@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, AvatarImage, AvatarFallback } from "glasswave";
+import { Avatar, AvatarFallback, AvatarImage } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function AvatarPreview() {

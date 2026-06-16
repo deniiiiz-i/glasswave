@@ -1,8 +1,7 @@
 "use client";
 
-import { ScrollArea } from "glasswave";
+import { ScrollArea, Separator } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
-import { Separator } from "glasswave";
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`,

@@ -1,6 +1,6 @@
 "use client";
 
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "glasswave";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "glasswave";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function HoverCardPreview() {
