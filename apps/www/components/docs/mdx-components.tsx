@@ -1,7 +1,17 @@
 import { Separator } from "glasswave";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+
+/** Slugify heading text into an `id` the right-rail TOC can link to. */
+function slugify(node: ReactNode): string {
+  const text = typeof node === "string" ? node : String(node ?? "");
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-");
+}
 
 export function getMDXComponents(): MDXComponents {
   return {
@@ -11,14 +21,18 @@ export function getMDXComponents(): MDXComponents {
       </h1>
     ),
     h2: ({ children }: ComponentPropsWithoutRef<"h2">) => (
-      <>
-        <h2 className="text-xl font-semibold text-slate-900 dark:text-white mt-10 mb-3">
-          {children}
-        </h2>
-      </>
+      <h2
+        id={slugify(children)}
+        className="scroll-mt-28 text-xl font-semibold text-slate-900 dark:text-white mt-10 mb-3"
+      >
+        {children}
+      </h2>
     ),
     h3: ({ children }: ComponentPropsWithoutRef<"h3">) => (
-      <h3 className="text-base font-semibold text-slate-800 dark:text-white/90 mt-6 mb-2">
+      <h3
+        id={slugify(children)}
+        className="scroll-mt-28 text-base font-semibold text-slate-800 dark:text-white/90 mt-6 mb-2"
+      >
         {children}
       </h3>
     ),

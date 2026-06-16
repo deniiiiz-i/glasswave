@@ -4,11 +4,13 @@ import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const options = [
-  { value: "light", label: "Light", Icon: Sun },
-  { value: "dark", label: "Dark", Icon: Moon },
-  { value: "system", label: "System", Icon: Monitor },
-] as const;
+// Cycle order: system → light → dark → system.
+const order = ["system", "light", "dark"] as const;
+const meta = {
+  system: { label: "System", Icon: Monitor },
+  light: { label: "Light", Icon: Sun },
+  dark: { label: "Dark", Icon: Moon },
+} as const;
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -17,35 +19,23 @@ export function ThemeToggle() {
   // Avoid hydration mismatch: the chosen theme is only known on the client.
   useEffect(() => setMounted(true), []);
 
-  // Before mount the theme is unknown; default to "system".
-  const current = mounted ? theme : "system";
+  const current = (mounted ? theme : "system") as keyof typeof meta;
+  const { label, Icon } = meta[current] ?? meta.system;
+
+  const cycle = () => {
+    const idx = order.indexOf(current as (typeof order)[number]);
+    setTheme(order[(idx + 1) % order.length]);
+  };
 
   return (
-    <div
-      role="group"
-      aria-label="Toggle theme"
-      className="inline-flex items-center gap-0.5 rounded-full border border-slate-200 dark:border-white/10 p-0.5"
+    <button
+      type="button"
+      onClick={cycle}
+      aria-label={`Theme: ${label}. Click to change.`}
+      title={`Theme: ${label}`}
+      className="inline-flex items-center justify-center size-9 rounded-full border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/60 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
     >
-      {options.map(({ value, label, Icon }) => {
-        const active = current === value;
-        return (
-          <button
-            key={value}
-            type="button"
-            aria-pressed={active}
-            aria-label={label}
-            title={label}
-            onClick={() => setTheme(value)}
-            className={`inline-flex items-center justify-center size-7 rounded-full transition-colors ${
-              active
-                ? "bg-slate-100 text-slate-900 dark:bg-white/10 dark:text-white"
-                : "text-slate-500 dark:text-white/60 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <Icon className="size-4" />
-          </button>
-        );
-      })}
-    </div>
+      {mounted ? <Icon className="size-4" /> : <span className="size-4" />}
+    </button>
   );
 }

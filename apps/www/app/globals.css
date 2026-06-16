@@ -9,3 +9,133 @@
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
+
+/* ============================================================
+   Site chrome helpers — ambient field, glass text, motion.
+   Authored as plain CSS because the masks/clip-text/keyframes
+   are awkward to express as Tailwind utilities. Each has a
+   light default and a `.dark` override so both themes read.
+   ============================================================ */
+
+/* Subtle grid mesh, fading out toward the edges */
+.gw-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 78%);
+}
+.dark .gw-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+}
+
+/* Cursor-following spotlight (position driven by --mx/--my from JS) */
+.gw-spotlight {
+  background: radial-gradient(
+    480px circle at var(--mx, 50%) var(--my, 30%),
+    rgb(15 23 42 / 0.05),
+    transparent 60%
+  );
+  transition: background 120ms linear;
+}
+.dark .gw-spotlight {
+  background: radial-gradient(
+    480px circle at var(--mx, 50%) var(--my, 30%),
+    rgb(255 255 255 / 0.07),
+    transparent 60%
+  );
+}
+
+/* Frosted-glass clip text for hero words & wordmark */
+.gw-glass-text {
+  background: linear-gradient(
+    180deg,
+    rgb(15 23 42 / 0.95) 0%,
+    rgb(15 23 42 / 0.6) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.dark .gw-glass-text {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgb(255 255 255 / 0.85) 42%,
+    rgb(255 255 255 / 0.5) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / 0.35))
+    drop-shadow(0 6px 22px rgb(255 255 255 / 0.18));
+}
+
+/* Dotted backdrop for the component preview stage */
+.gw-stage-dots::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgb(15 23 42 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000, transparent 75%);
+}
+.dark .gw-stage-dots::before {
+  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+}
+
+/* Entrance — slide only (never rests at opacity:0, so paused frames stay visible) */
+@keyframes gw-rise {
+  from {
+    transform: translateY(22px);
+  }
+  to {
+    transform: none;
+  }
+}
+.gw-reveal {
+  animation: gw-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.gw-reveal.d1 {
+  animation-delay: 0.04s;
+}
+.gw-reveal.d2 {
+  animation-delay: 0.1s;
+}
+.gw-reveal.d3 {
+  animation-delay: 0.16s;
+}
+.gw-reveal.d4 {
+  animation-delay: 0.22s;
+}
+.gw-reveal.d5 {
+  animation-delay: 0.28s;
+}
+
+/* Gentle float for the hero showcase */
+@keyframes gw-floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.gw-float {
+  animation: gw-floaty 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gw-reveal,
+  .gw-float {
+    animation: none;
+    transform: none;
+  }
+}

@@ -1,3 +1,4 @@
+import { DocsToc } from "@/components/docs/docs-toc";
 import { Sidebar } from "@/components/docs/sidebar";
 
 export default function DocsLayout({
@@ -6,11 +7,10 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex">
+    <div className="relative z-10 mx-auto grid w-[min(1280px,calc(100%-3rem))] grid-cols-1 items-start gap-8 pt-8 pb-20 lg:grid-cols-[232px_minmax(0,1fr)] xl:grid-cols-[232px_minmax(0,1fr)_200px]">
       <Sidebar />
-      <main className="flex-1 lg:pl-[260px]">
-        <div className="max-w-3xl mx-auto px-4 md:px-8 py-12">{children}</div>
-      </main>
+      <main className="min-w-0 pt-1">{children}</main>
+      <DocsToc />
     </div>
   );
 }

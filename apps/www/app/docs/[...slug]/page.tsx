@@ -8,7 +8,9 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import path from "path";
 import { getMDXComponents } from "@/components/docs/mdx-components";
+import { PreviewSourceProvider } from "@/components/preview-source-context";
 import * as previews from "@/components/previews";
+import { getPreviewSources } from "@/lib/preview-source";
 import { siteConfig } from "@/lib/site-config";
 
 const contentDir = path.join(process.cwd(), "content");
@@ -152,8 +154,28 @@ export default async function DocPage({
   const mdxComponents = getMDXComponents();
   const { ComponentsList } = await import("@/components/components-list");
 
+  // Wrap each preview so it carries its own source code (read off disk at
+  // build time) down to ComponentPreview, enabling the Code toggle.
+  const previewSources = getPreviewSources();
+  const wrappedPreviews = Object.fromEntries(
+    Object.entries(previews).map(([name, Preview]) => {
+      const code = previewSources[name];
+      if (!code) return [name, Preview];
+      const Wrapped = () => (
+        <PreviewSourceProvider code={code}>
+          <Preview />
+        </PreviewSourceProvider>
+      );
+      return [name, Wrapped];
+    }),
+  );
+
   // Merge components so MDX can use them
-  const components = { ...mdxComponents, ...previews, ComponentsList };
+  const components = {
+    ...mdxComponents,
+    ...wrappedPreviews,
+    ComponentsList,
+  };
 
   const { prev, next } = getNavigation(slug);
 
