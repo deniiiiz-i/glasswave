@@ -6,6 +6,7 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/deniiiiz_i",
     github: "https://github.com/deniiiiz-i/glasswave",
+    npm: "https://www.npmjs.com/package/glasswave",
   },
   author: "Deniz",
 };

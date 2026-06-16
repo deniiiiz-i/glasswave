@@ -8,6 +8,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+import { SiteBackground } from "@/components/site-background";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site-config";
@@ -72,6 +73,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen font-sans antialiased bg-slate-50 dark:bg-black text-slate-900 dark:text-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SiteBackground />
           <SiteHeader />
           {children}
           <Analytics />
