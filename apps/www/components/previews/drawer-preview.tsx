@@ -16,7 +16,7 @@ export function DrawerPreview() {
     <ComponentPreview label="Drawer">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="secondary">Open drawer</Button>
+          <Button variant="glass">Open drawer</Button>
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>

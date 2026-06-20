@@ -5,7 +5,7 @@ export function Empty({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="empty"
       className={cn(
-        "flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-[32px] border border-dashed border-white/15 p-10 text-center",
+        "flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-[32px] border border-dashed border-black/10 dark:border-white/15 p-10 text-center",
         className,
       )}
       {...props}
@@ -34,7 +34,7 @@ export function EmptyMedia({
       data-variant={variant}
       className={cn(
         "flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0",
-        variant === "default" && "bg-white/[0.06] rounded-2xl size-12 border border-white/10 [&_svg:not([class*='size-'])]:size-6",
+        variant === "default" && "bg-black/[0.04] dark:bg-white/[0.06] rounded-2xl size-12 border border-black/[0.08] dark:border-white/10 [&_svg:not([class*='size-'])]:size-6",
         variant === "icon" && "bg-transparent [&_svg:not([class*='size-'])]:size-10 text-current/50",
         className,
       )}

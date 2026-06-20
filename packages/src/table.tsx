@@ -3,7 +3,7 @@ import { cn } from "../../lib/cn";
 
 export const Table = forwardRef<HTMLTableElement, React.ComponentProps<"table">>(
   ({ className, ...props }, ref) => (
-    <div data-slot="table-wrapper" className="relative w-full overflow-x-auto rounded-[32px] border border-white/[0.18] dark:border-white/[0.25]">
+    <div data-slot="table-wrapper" className="relative w-full overflow-x-auto rounded-[32px] border border-black/[0.08] dark:border-white/[0.25]">
       <table
         ref={ref}
         data-slot="table"
@@ -20,7 +20,7 @@ export const TableHeader = forwardRef<HTMLTableSectionElement, React.ComponentPr
     <thead
       ref={ref}
       data-slot="table-header"
-      className={cn("border-b border-white/10 [&_tr]:hover:bg-transparent", className)}
+      className={cn("border-b border-black/[0.08] dark:border-white/10 [&_tr]:hover:bg-transparent", className)}
       {...props}
     />
   ),
@@ -45,7 +45,7 @@ export const TableFooter = forwardRef<HTMLTableSectionElement, React.ComponentPr
       ref={ref}
       data-slot="table-footer"
       className={cn(
-        "border-t border-white/10 bg-white/[0.04] font-medium dark:bg-white/[0.06]",
+        "border-t border-black/[0.08] dark:border-white/10 bg-black/[0.03] font-medium dark:bg-white/[0.06]",
         className,
       )}
       {...props}
@@ -60,7 +60,7 @@ export const TableRow = forwardRef<HTMLTableRowElement, React.ComponentProps<"tr
       ref={ref}
       data-slot="table-row"
       className={cn(
-        "border-b border-white/[0.08] transition-colors hover:bg-white/[0.04] data-[state=selected]:bg-white/[0.08]",
+        "border-b border-black/[0.06] dark:border-white/[0.08] transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06] data-[state=selected]:bg-black/[0.05] dark:data-[state=selected]:bg-white/[0.08]",
         className,
       )}
       {...props}

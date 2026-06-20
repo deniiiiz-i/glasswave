@@ -28,7 +28,7 @@ export function CardPreview() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between gap-4">
-          <Button variant="secondary" className="flex-1">
+          <Button variant="glass" className="flex-1">
             Cancel
           </Button>
           <Button className="flex-1">Deploy</Button>

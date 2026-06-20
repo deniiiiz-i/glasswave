@@ -4,13 +4,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/cn";
 
 const buttonGroupVariants = cva(
-  "inline-flex w-fit items-stretch [&>*]:focus-visible:z-10 [&>*]:rounded-none first:[&>*]:rounded-l-full last:[&>*]:rounded-r-full",
+  "inline-flex w-fit items-stretch [&>*]:focus-visible:z-10 [&>*]:shadow-none hover:[&>*]:z-10",
   {
     variants: {
       orientation: {
-        horizontal: "flex-row [&>*:not(:first-child)]:-ml-px",
+        horizontal:
+          "flex-row [&>*:not(:first-child)]:-ml-px [&>*:not(:first-child)]:rounded-l-none [&>*:not(:last-child)]:rounded-r-none",
         vertical:
-          "flex-col first:[&>*]:rounded-t-full first:[&>*]:rounded-b-none first:[&>*]:rounded-l-full first:[&>*]:rounded-r-full last:[&>*]:rounded-b-full last:[&>*]:rounded-t-none last:[&>*]:rounded-l-full last:[&>*]:rounded-r-full [&>*:not(:first-child)]:-mt-px",
+          "flex-col [&>*:not(:first-child)]:-mt-px [&>*:not(:first-child)]:rounded-t-none [&>*:not(:last-child)]:rounded-b-none",
       },
     },
     defaultVariants: {

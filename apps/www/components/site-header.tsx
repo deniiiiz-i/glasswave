@@ -86,11 +86,7 @@ export function SiteHeader() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button
-              variant="secondary"
-              size="icon"
-              className="size-9 lg:hidden"
-            >
+            <Button variant="glass" size="icon" className="size-9 lg:hidden">
               <Menu className="size-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>

@@ -42,7 +42,7 @@ const SelectScrollUpButton = forwardRef<
   <RadixSelect.ScrollUpButton
     ref={ref}
     className={cn(
-      "flex h-7 w-full shrink-0 cursor-default items-center justify-center border-b border-white/10 bg-white/[0.04] text-current/70",
+      "flex h-7 w-full shrink-0 cursor-default items-center justify-center border-b border-black/[0.08] dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.04] text-current/70",
       "[&[data-state=hidden]]:hidden",
       className,
     )}
@@ -60,7 +60,7 @@ const SelectScrollDownButton = forwardRef<
   <RadixSelect.ScrollDownButton
     ref={ref}
     className={cn(
-      "flex h-7 w-full shrink-0 cursor-default items-center justify-center border-t border-white/10 bg-white/[0.04] text-current/70",
+      "flex h-7 w-full shrink-0 cursor-default items-center justify-center border-t border-black/[0.08] dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.04] text-current/70",
       "[&[data-state=hidden]]:hidden",
       className,
     )}

@@ -13,13 +13,43 @@ import { CalendarPreview } from "@/components/previews/calendar-preview";
 import { Calendar } from "glasswave";
 import { useState } from "react";
 
-const [date, setDate] = useState<Date>();
+export function DatePicker() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
-<Calendar mode="single" selected={date} onSelect={setDate} />
+  return <Calendar mode="single" selected={date} onSelect={setDate} />;
+}
 ```
 
-The component imports `react-day-picker/style.css` internally. All [DayPicker props](https://daypicker.dev) are supported (`mode`, `selected`, `disabled`, `modifiers`, etc.).
+`Calendar` wraps [react-day-picker v9](https://daypicker.dev), so every DayPicker prop is supported (`mode`, `selected`, `disabled`, `modifiers`, `numberOfMonths`, …).
+
+### Month & year dropdowns
+
+The caption shows editable month and year selectors by default (`captionLayout="dropdown"`). The year list spans `startMonth` → `endMonth`, which default to January 1925 → December of the current year + 5. Override either to bound the range, or fall back to a static label:
+
+```tsx
+// Static "June 2026" caption, no dropdowns
+<Calendar mode="single" captionLayout="label" />
+
+// Bound the selectable range (also limits the year dropdown)
+<Calendar
+  mode="single"
+  startMonth={new Date(2020, 0)}
+  endMonth={new Date(2030, 11)}
+/>
+```
+
+### Selection modes
+
+```tsx
+// Range
+const [range, setRange] = useState<DateRange>();
+<Calendar mode="range" selected={range} onSelect={setRange} />
+
+// Multiple
+const [days, setDays] = useState<Date[]>([]);
+<Calendar mode="multiple" selected={days} onSelect={setDays} />
+```
 
 ## Styling
 
-Glass styling is applied via `classNames` merged with `getDefaultClassNames()`. Override any key through the `classNames` prop.
+Glass styling is applied through `classNames` merged with `getDefaultClassNames()` — override any key (e.g. `day_button`, `selected`, `today`) via the `classNames` prop. The component imports `react-day-picker/style.css` internally and neutralizes its accent colour, cell sizing, and the bold/enlarged selected day so the grid matches the glass theme.

@@ -1,66 +1,39 @@
 "use client";
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "glasswave";
+import {
+  Button,
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "glasswave";
+import { CalendarDays } from "lucide-react";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function HoverCardPreview() {
-  const cardContent = (
-    <div className="space-y-2">
-      <h6 className="text-sm font-semibold">@glasswave</h6>
-      <p className="text-sm opacity-70">
-        A beautiful UI library for modern applications.
-      </p>
-      <h6 className="text-xs opacity-50">Joined December 2026</h6>
-    </div>
-  );
-
   return (
     <ComponentPreview label="Hover Card">
-      <div className="flex flex-wrap gap-8 items-center justify-center">
-        <HoverCard>
-          <HoverCardTrigger asChild>
-            <span className="text-sm font-semibold underline cursor-pointer">
-              Top
-            </span>
-          </HoverCardTrigger>
-          <HoverCardContent side="top" className="w-64">
-            {cardContent}
-          </HoverCardContent>
-        </HoverCard>
-
-        <HoverCard>
-          <HoverCardTrigger asChild>
-            <span className="text-sm font-semibold underline cursor-pointer">
-              Bottom
-            </span>
-          </HoverCardTrigger>
-          <HoverCardContent side="bottom" className="w-64">
-            {cardContent}
-          </HoverCardContent>
-        </HoverCard>
-
-        <HoverCard>
-          <HoverCardTrigger asChild>
-            <span className="text-sm font-semibold underline cursor-pointer">
-              Left
-            </span>
-          </HoverCardTrigger>
-          <HoverCardContent side="left" className="w-64">
-            {cardContent}
-          </HoverCardContent>
-        </HoverCard>
-
-        <HoverCard>
-          <HoverCardTrigger asChild>
-            <span className="text-sm font-semibold underline cursor-pointer">
-              Right
-            </span>
-          </HoverCardTrigger>
-          <HoverCardContent side="right" className="w-64">
-            {cardContent}
-          </HoverCardContent>
-        </HoverCard>
-      </div>
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <Button variant="glass">@glasswave</Button>
+        </HoverCardTrigger>
+        <HoverCardContent side="top" className="w-72">
+          <div className="flex gap-3">
+            <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-sky-400/80 to-indigo-500/80 text-sm font-semibold text-white shadow-inner">
+              GW
+            </div>
+            <div className="space-y-1.5">
+              <h6 className="text-sm font-semibold leading-none">@glasswave</h6>
+              <p className="text-sm opacity-70">
+                A beautiful glassmorphism UI library for modern React apps.
+              </p>
+              <div className="flex items-center gap-1.5 pt-1 text-xs opacity-50">
+                <CalendarDays className="size-3.5" />
+                <span>Joined December 2026</span>
+              </div>
+            </div>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
     </ComponentPreview>
   );
 }

@@ -39,8 +39,7 @@ const sheetContentVariants = cva(
         top: "inset-x-0 top-0 rounded-b-[32px] border-b border-zinc-200 dark:border-white/10 data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
         bottom:
           "inset-x-0 bottom-0 rounded-t-[32px] border-t border-zinc-200 dark:border-white/10 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
-        left:
-          "inset-y-0 left-0 h-full w-3/4 max-w-sm rounded-r-[32px] border-r border-zinc-200 dark:border-white/10 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-md",
+        left: "inset-y-0 left-0 h-full w-3/4 max-w-sm rounded-r-[32px] border-r border-zinc-200 dark:border-white/10 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-md",
         right:
           "inset-y-0 right-0 h-full w-3/4 max-w-sm rounded-l-[32px] border-l border-zinc-200 dark:border-white/10 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-md",
       },
@@ -59,11 +58,15 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(
   ({ side = "right", className, children, ...props }, ref) => (
     <SheetPortal>
       <SheetOverlay />
-      <SheetPrimitive.Content ref={ref} className={cn(sheetContentVariants({ side }), className)} {...props}>
+      <SheetPrimitive.Content
+        ref={ref}
+        className={cn(sheetContentVariants({ side }), className)}
+        {...props}
+      >
         {children}
-        <Button 
-          asChild 
-          variant="secondary" 
+        <Button
+          asChild
+          variant="glass"
           size="icon"
           className="absolute right-4 top-4"
         >
@@ -78,13 +81,28 @@ export const SheetContent = forwardRef<HTMLDivElement, SheetContentProps>(
 );
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
-export const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-col gap-1.5 text-center sm:text-left", className)} {...props} />
+export const SheetHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn("flex flex-col gap-1.5 text-center sm:text-left", className)}
+    {...props}
+  />
 );
 SheetHeader.displayName = "SheetHeader";
 
-export const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("mt-auto flex flex-col gap-2 sm:flex-row sm:justify-end", className)} {...props} />
+export const SheetFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "mt-auto flex flex-col gap-2 sm:flex-row sm:justify-end",
+      className,
+    )}
+    {...props}
+  />
 );
 SheetFooter.displayName = "SheetFooter";
 
@@ -92,7 +110,11 @@ export const SheetTitle = forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <SheetPrimitive.Title ref={ref} className={cn("text-lg font-semibold text-current", className)} {...props} />
+  <SheetPrimitive.Title
+    ref={ref}
+    className={cn("text-lg font-semibold text-current", className)}
+    {...props}
+  />
 ));
 SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
@@ -100,6 +122,10 @@ export const SheetDescription = forwardRef<
   HTMLParagraphElement,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <SheetPrimitive.Description ref={ref} className={cn("text-sm text-current/70", className)} {...props} />
+  <SheetPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-current/70", className)}
+    {...props}
+  />
 ));
 SheetDescription.displayName = SheetPrimitive.Description.displayName;

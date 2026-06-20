@@ -19,7 +19,7 @@ export function ToastPreview() {
   return (
     <ComponentPreview label="Toast">
       <div className="flex gap-2">
-        <Button onClick={() => showToast("default")} variant="secondary">
+        <Button onClick={() => showToast("default")} variant="glass">
           Default
         </Button>
         <Button onClick={() => showToast("error")} variant="destructive">
@@ -35,7 +35,7 @@ export function ToastPreview() {
               : "Something went wrong!"
           }
           type={type}
-          position="top-right"
+          position="bottom-center"
         />
       )}
     </ComponentPreview>

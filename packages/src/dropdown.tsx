@@ -4,6 +4,12 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "../../lib/cn";
 import { glass } from "../../lib/glass";
+import {
+  menuContentClass,
+  menuItemClass,
+  menuLabelClass,
+  menuSeparatorClass,
+} from "../../lib/menu-classes";
 
 export const DropdownMenu = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -22,7 +28,8 @@ export const DropdownMenuContent = forwardRef<
       sideOffset={sideOffset}
       className={cn(
         glass,
-        "z-50 min-w-[200px] overflow-hidden p-0 py-1.5 shadow-lg",
+        menuContentClass,
+        "animate-in fade-in-0 zoom-in-95",
         className,
       )}
       {...props}
@@ -37,11 +44,7 @@ export const DropdownMenuItem = forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
-    className={cn(
-      "w-full select-none rounded-none px-3 py-2 text-left outline-none",
-      "data-[highlighted]:bg-white/20 data-[disabled]:opacity-50",
-      className,
-    )}
+    className={cn(menuItemClass, className)}
     {...props}
   />
 ));
@@ -53,10 +56,7 @@ export const DropdownMenuLabel = forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
-    className={cn(
-      "px-3 py-1.5 text-xs uppercase tracking-wide text-current/70",
-      className,
-    )}
+    className={cn(menuLabelClass, className)}
     {...props}
   />
 ));
@@ -68,7 +68,7 @@ export const DropdownMenuSeparator = forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
-    className={cn("my-1 h-px w-full bg-white/20", className)}
+    className={cn(menuSeparatorClass, className)}
     {...props}
   />
 ));

@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "glasswave";
+import { LogOut, Settings, User } from "lucide-react";
 import { ComponentPreview } from "@/components/component-preview";
 
 export function DropdownPreview() {
@@ -21,10 +22,19 @@ export function DropdownPreview() {
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <DropdownMenuItem>
+            <User className="size-4 opacity-70" />
+            Profile
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Settings className="size-4 opacity-70" />
+            Settings
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Log out</DropdownMenuItem>
+          <DropdownMenuItem>
+            <LogOut className="size-4 opacity-70" />
+            Log out
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </ComponentPreview>

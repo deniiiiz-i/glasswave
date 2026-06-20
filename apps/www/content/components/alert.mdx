@@ -14,10 +14,20 @@ import { Alert, AlertTitle, AlertDescription } from 'glasswave';
 ```
 
 ```tsx
-<Alert variant="default | destructive">
-  <AlertTitle>Success!</AlertTitle>
+<Alert variant="default | success | warning | destructive">
+  <AlertTitle>Heads up</AlertTitle>
   <AlertDescription>
-    This is alert with title and description.
+    This is an alert with a title and description.
   </AlertDescription>
+</Alert>
+```
+
+Each variant ships a matching system-color icon. Pass your own with the
+`icon` prop, or `icon={null}` to hide it:
+
+```tsx
+<Alert icon={<Sparkles />}>
+  <AlertTitle>Custom icon</AlertTitle>
+  <AlertDescription>Any icon works here.</AlertDescription>
 </Alert>
 ```

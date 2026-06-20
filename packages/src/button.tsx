@@ -1,16 +1,19 @@
-import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../../lib/cn";
 import { focusRing, glass, glassInteractive } from "../../lib/glass";
 
 export const buttonVariants = cva(
-  `${glass} ${glassInteractive} ${focusRing} font-medium rounded-full`,
+  `${glass} ${glassInteractive} ${focusRing} inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium rounded-full [&_svg]:shrink-0`,
   {
     variants: {
       variant: {
-        default: "bg-[#007AFF] hover:bg-[#007AFF]/90 text-white shadow-sm border-0",
-        secondary: "",
+        default:
+          "bg-[#007AFF] hover:bg-[#007AFF]/90 text-white shadow-sm border-0",
+        outline:
+          "bg-none text-[#007AFF] border-[#007AFF]/55 shadow-none hover:bg-[#007AFF]/10 hover:border-[#007AFF]/70 hover:shadow-none dark:text-[#409cff] dark:border-[#409cff]/55 dark:hover:border-[#409cff]/70",
+        glass: "",
         destructive: "!text-[#FF3B30]",
       },
       size: {

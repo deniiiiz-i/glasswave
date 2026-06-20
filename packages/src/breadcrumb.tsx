@@ -9,12 +9,17 @@ export function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
-export function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
+export function BreadcrumbList({
+  className,
+  ...props
+}: React.ComponentProps<"ol">) {
   return (
     <ol
       data-slot="breadcrumb-list"
       className={cn(
-        "flex flex-wrap items-center gap-1.5 break-words text-sm text-current/80",
+        // Frosted glass bar — visible white fill + top highlight so it reads as
+        // glass on light backgrounds rather than flat grey.
+        "relative flex w-fit flex-wrap items-center gap-1 break-words rounded-full border border-black/[0.06] bg-white/45 px-3.5 py-1.5 text-sm text-current/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7),0_6px_20px_rgba(0,0,0,0.06)] backdrop-blur-xl dark:border-white/12 dark:bg-white/[0.07] dark:text-current/75 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.3)]",
         className,
       )}
       {...props}
@@ -22,7 +27,10 @@ export function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol
   );
 }
 
-export function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
+export function BreadcrumbItem({
+  className,
+  ...props
+}: React.ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-item"
@@ -42,7 +50,7 @@ export const BreadcrumbLink = forwardRef<
       ref={ref}
       data-slot="breadcrumb-link"
       className={cn(
-        "transition-colors hover:text-current hover:underline underline-offset-4",
+        "rounded-full px-2 py-0.5 transition-colors hover:bg-black/[0.06] hover:text-current dark:hover:bg-white/10",
         className,
       )}
       {...props}
@@ -51,14 +59,20 @@ export const BreadcrumbLink = forwardRef<
 });
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
-export function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
+export function BreadcrumbPage({
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
   return (
     <span
       data-slot="breadcrumb-page"
       role="link"
       aria-disabled="true"
       aria-current="page"
-      className={cn("font-medium text-current", className)}
+      className={cn(
+        "rounded-full border border-black/[0.05] bg-white/70 px-2 py-0.5 font-medium text-current shadow-sm dark:border-white/10 dark:bg-white/[0.14]",
+        className,
+      )}
       {...props}
     />
   );
@@ -82,7 +96,10 @@ export function BreadcrumbSeparator({
   );
 }
 
-export function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<"span">) {
+export function BreadcrumbEllipsis({
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"

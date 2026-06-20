@@ -45,7 +45,7 @@ export function ComponentPreview({ children, label }: ComponentPreviewProps) {
         </pre>
       ) : (
         <div className="gw-stage-dots relative flex min-h-[168px] flex-wrap items-center justify-center gap-4 bg-slate-100 p-11 dark:bg-[#060608]">
-          <div className="relative z-[1] flex flex-wrap items-center justify-center gap-4">
+          <div className="relative z-[1] flex w-full flex-wrap items-center justify-center gap-4">
             {children}
           </div>
         </div>
