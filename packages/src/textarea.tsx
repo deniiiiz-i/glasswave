@@ -1,4 +1,4 @@
-import { type TextareaHTMLAttributes, forwardRef } from "react";
+import { forwardRef, type TextareaHTMLAttributes } from "react";
 import { cn } from "../../lib/cn";
 import { focusRing, glass } from "../../lib/glass";
 
@@ -9,7 +9,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const baseClasses = cn(
       glass,
       focusRing,
-      "w-full px-4 py-2 resize-none",
+      // Match Input: gentle 12px radius and lighter text, with a sensible
+      // minimum height for a multi-line field.
+      "min-h-20 w-full rounded-xl px-3.5 py-2.5 text-sm font-normal placeholder:text-current/40",
+      "resize-none disabled:cursor-not-allowed disabled:opacity-50",
     );
 
     return (

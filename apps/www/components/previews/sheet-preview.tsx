@@ -16,7 +16,7 @@ export function SheetPreview() {
     <ComponentPreview label="Sheet">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="secondary">Open sheet</Button>
+          <Button variant="glass">Open sheet</Button>
         </SheetTrigger>
         <SheetContent side="right">
           <SheetHeader>

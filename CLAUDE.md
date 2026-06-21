@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Glasswave** is a glassmorphism React component library (npm: `glasswave`, v0.2.2). It is a pnpm monorepo with two workspaces:
+**Glasswave** is a glassmorphism React component library (npm: `glasswave`). It is a pnpm monorepo with two workspaces:
 
 - **Root (`/`)** — The publishable component library (`packages/src/`, `lib/`, `packages/index.ts`, `packages/index.css`)
 - **`apps/www`** — Next.js documentation/demo site (read `apps/www/AGENTS.md` before touching Next.js code — this version has breaking changes)

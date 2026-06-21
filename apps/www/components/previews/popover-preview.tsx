@@ -8,7 +8,7 @@ export function PopoverPreview() {
     <ComponentPreview label="Popover">
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="secondary">Open popover</Button>
+          <Button variant="glass">Open popover</Button>
         </PopoverTrigger>
         <PopoverContent className="w-80">
           <div className="grid gap-4 text-gray-900 dark:text-white">

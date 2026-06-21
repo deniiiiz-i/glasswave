@@ -10,12 +10,14 @@ const tags = Array.from({ length: 50 }).map(
 export function ScrollAreaPreview() {
   return (
     <ComponentPreview label="Scroll Area">
-      <ScrollArea className="h-48 w-48 rounded-md border border-white/20 bg-white/5">
-        <div className="p-4 text-white">
-          <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+      <ScrollArea className="h-56 w-56 rounded-2xl border border-black/[0.08] bg-black/[0.02] dark:border-white/12 dark:bg-white/[0.04]">
+        <div className="p-4">
+          <h4 className="mb-3 text-sm font-medium leading-none text-current">
+            Tags
+          </h4>
           {tags.map((tag) => (
             <div key={tag}>
-              <div className="text-sm text-white/80">{tag}</div>
+              <div className="text-sm text-current/70">{tag}</div>
               <Separator className="my-2" />
             </div>
           ))}

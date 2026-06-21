@@ -16,10 +16,10 @@ export function InputGroupPreview() {
           <InputGroupAddon align="inline-start">
             <InputGroupText>https://</InputGroupText>
           </InputGroupAddon>
-          <InputGroupInput className="ps-[4.5rem]" placeholder="example.com" />
+          <InputGroupInput placeholder="example.com" />
         </InputGroup>
         <InputGroup>
-          <InputGroupInput className="pe-12" placeholder="0.00" />
+          <InputGroupInput placeholder="0.00" />
           <InputGroupAddon align="inline-end">
             <InputGroupText>USD</InputGroupText>
           </InputGroupAddon>

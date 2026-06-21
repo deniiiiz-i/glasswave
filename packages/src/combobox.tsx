@@ -49,17 +49,20 @@ export function Combobox({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          variant="secondary"
+          variant="glass"
           role="combobox"
           aria-expanded={open}
           disabled={disabled}
           className={cn("min-w-[220px] justify-between font-normal", className)}
         >
           <span className="truncate">{selected?.label ?? placeholder}</span>
-          <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" aria-hidden />
+          <ChevronsUpDown className="size-4 shrink-0 opacity-50" aria-hidden />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] min-w-[220px] p-0" align="start">
+      <PopoverContent
+        className="w-[var(--radix-popover-trigger-width)] min-w-[220px] p-0"
+        align="start"
+      >
         <Command>
           <CommandInput placeholder={searchPlaceholder} />
           <CommandList>
@@ -76,7 +79,10 @@ export function Combobox({
                   }}
                 >
                   <Check
-                    className={cn("mr-2 size-4 shrink-0", value === opt.value ? "opacity-100" : "opacity-0")}
+                    className={cn(
+                      "size-4 shrink-0",
+                      value === opt.value ? "opacity-100" : "opacity-0",
+                    )}
                     aria-hidden
                   />
                   {opt.label}

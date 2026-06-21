@@ -40,7 +40,7 @@ export const NavigationMenuTrigger = forwardRef<
     ref={ref}
     className={cn(
       "group inline-flex h-10 items-center justify-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-      "outline-none hover:bg-white/10 focus:bg-white/10 data-[state=open]:bg-white/15",
+      "outline-none hover:bg-black/[0.05] dark:hover:bg-white/10 focus:bg-black/[0.05] dark:focus:bg-white/10 data-[state=open]:bg-black/[0.06] dark:data-[state=open]:bg-white/15",
       className,
     )}
     {...props}
@@ -79,7 +79,7 @@ export const NavigationMenuViewport = forwardRef<
   <div className={cn("absolute left-0 top-full flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-2 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-[32px] border border-white/[0.18] shadow-lg md:w-[var(--radix-navigation-menu-viewport-width)]",
+        "origin-top-center relative mt-2 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-[32px] border border-black/[0.08] dark:border-white/[0.18] shadow-lg md:w-[var(--radix-navigation-menu-viewport-width)]",
         glass,
         "data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90",
         className,
@@ -103,7 +103,7 @@ export const NavigationMenuIndicator = forwardRef<
     )}
     {...props}
   >
-    <div className="relative top-[60%] size-2 rotate-45 rounded-tl-sm bg-white/20 shadow-md" />
+    <div className="relative top-[60%] size-2 rotate-45 rounded-tl-sm bg-black/20 dark:bg-white/20 shadow-md" />
   </NavigationMenuPrimitive.Indicator>
 ));
 NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;

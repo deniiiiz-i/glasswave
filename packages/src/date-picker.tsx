@@ -35,11 +35,15 @@ export function DatePicker({
       <PopoverTrigger asChild>
         <Button
           type="button"
-          variant="secondary"
+          variant="glass"
           disabled={disabled}
-          className={cn("min-w-[240px] justify-start text-left font-normal", !date && "text-current/55", className)}
+          className={cn(
+            "min-w-[240px] justify-start text-left font-normal",
+            !date && "text-current/55",
+            className,
+          )}
         >
-          <CalendarIcon className="mr-2 size-4 shrink-0 opacity-70" aria-hidden />
+          <CalendarIcon className="size-4 shrink-0 opacity-70" aria-hidden />
           {date ? format(date, formatPattern) : placeholder}
         </Button>
       </PopoverTrigger>

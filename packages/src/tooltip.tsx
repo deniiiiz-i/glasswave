@@ -26,12 +26,13 @@ export function Tooltip({ content, children, className = "", side = "top" }: Too
             className={cn(
               glass,
               "bg-white dark:bg-zinc-950",
-              "px-3 py-2 rounded-[32px] border border-white/[0.18] dark:border-white/[0.25] text-sm animate-in fade-in-0 zoom-in-95",
+              "z-50 overflow-visible rounded-2xl border border-black/[0.08] px-3 py-1.5 text-sm shadow-lg dark:border-white/[0.2]",
+              "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
               className,
             )}
           >
             {content}
-            <RadixTooltip.Arrow className="fill-white/20" />
+            <RadixTooltip.Arrow className="fill-white dark:fill-zinc-950" width={11} height={6} />
           </RadixTooltip.Content>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>

@@ -34,7 +34,7 @@ export function HomeShowcase() {
         <Sparkles className="size-3.5" /> Glassmorphism
       </Chip>
       <Chip className="bottom-6 -right-4 sm:-right-8 text-blue-500 dark:text-blue-300 [animation-delay:0.6s] gw-float">
-        <Zap className="size-3.5" /> 30+ components
+        <Zap className="size-3.5" /> 50+ components
       </Chip>
       <Chip className="top-1/2 -right-8 sm:-right-12 [animation-delay:1.2s] gw-float">
         <Check className="size-3.5" /> Accessible
@@ -44,7 +44,7 @@ export function HomeShowcase() {
         <Card className="w-[340px] max-w-full p-5 flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <Avatar className="size-11">
-              <AvatarFallback>DZ</AvatarFallback>
+              <AvatarFallback>DI</AvatarFallback>
             </Avatar>
             <div className="min-w-0">
               <p className="text-sm font-semibold text-slate-900 dark:text-white">
@@ -82,7 +82,7 @@ export function HomeShowcase() {
             <Progress value={66} />
           </div>
 
-          <Button className="w-full inline-flex items-center justify-center gap-2">
+          <Button className="w-full">
             <ArrowRight className="size-4" /> Open dashboard
           </Button>
         </Card>

@@ -31,7 +31,7 @@ export default function Home() {
             <span className="rounded-full bg-blue-500/15 px-2 py-0.5 text-xs font-semibold text-blue-600 dark:text-blue-300">
               v{version}
             </span>
-            Now with 30+ glass components
+            Now with 50+ glass components
           </span>
 
           <h1 className="gw-reveal d2 text-5xl md:text-[68px] font-extrabold tracking-[-0.035em] leading-[1.02] text-slate-900 dark:text-white">
@@ -47,19 +47,12 @@ export default function Home() {
 
           <div className="gw-reveal d4 flex flex-wrap gap-3">
             <Link href="/docs">
-              <Button
-                size="lg"
-                className="inline-flex items-center justify-center gap-2"
-              >
+              <Button size="lg">
                 <ArrowRight className="size-[18px]" /> Get Started
               </Button>
             </Link>
             <Link href="/docs/components">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="inline-flex items-center justify-center gap-2"
-              >
+              <Button variant="glass" size="lg">
                 <BookOpen className="size-[18px]" /> Browse Components
               </Button>
             </Link>

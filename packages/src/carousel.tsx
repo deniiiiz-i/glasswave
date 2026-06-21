@@ -1,6 +1,8 @@
 "use client";
 
-import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
+import useEmblaCarousel, {
+  type UseEmblaCarouselType,
+} from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   createContext,
@@ -100,75 +102,85 @@ export function Carousel({
   );
 }
 
-export const CarouselContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { carouselRef } = useCarousel();
-    return (
-      <div ref={carouselRef} className="overflow-hidden rounded-[32px] border border-white/[0.15]">
-        <div ref={ref} className={cn("flex", className)} {...props} />
-      </div>
-    );
-  },
-);
+export const CarouselContent = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const { carouselRef } = useCarousel();
+  return (
+    <div
+      ref={carouselRef}
+      className="overflow-hidden rounded-[32px] border border-black/[0.08] dark:border-white/[0.15]"
+    >
+      <div ref={ref} className={cn("flex", className)} {...props} />
+    </div>
+  );
+});
 CarouselContent.displayName = "CarouselContent";
 
-export const CarouselItem = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      role="group"
-      aria-roledescription="slide"
-      className={cn("min-w-0 shrink-0 grow-0 basis-full px-2 py-1 md:px-4", className)}
-      {...props}
-    />
-  ),
-);
+export const CarouselItem = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    role="group"
+    aria-roledescription="slide"
+    className={cn(
+      "min-w-0 shrink-0 grow-0 basis-full px-2 py-1 md:px-4",
+      className,
+    )}
+    {...props}
+  />
+));
 CarouselItem.displayName = "CarouselItem";
 
-export const CarouselPrevious = forwardRef<HTMLButtonElement, React.ComponentProps<"button">>(
-  ({ className, ...props }, ref) => {
-    const { scrollPrev, canScrollPrev } = useCarousel();
-    return (
-      <button
-        ref={ref}
-        type="button"
-        disabled={!canScrollPrev}
-        className={cn(
-          buttonVariants({ variant: "secondary", size: "icon" }),
-          "absolute left-2 top-1/2 z-10 -translate-y-1/2",
-          className,
-        )}
-        onClick={scrollPrev}
-        {...props}
-      >
-        <ArrowLeft className="size-4" />
-        <span className="sr-only">Previous slide</span>
-      </button>
-    );
-  },
-);
+export const CarouselPrevious = forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button">
+>(({ className, ...props }, ref) => {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+  return (
+    <button
+      ref={ref}
+      type="button"
+      disabled={!canScrollPrev}
+      className={cn(
+        buttonVariants({ variant: "glass", size: "icon" }),
+        "absolute left-2 top-1/2 z-10 -translate-y-1/2",
+        className,
+      )}
+      onClick={scrollPrev}
+      {...props}
+    >
+      <ArrowLeft className="size-4" />
+      <span className="sr-only">Previous slide</span>
+    </button>
+  );
+});
 CarouselPrevious.displayName = "CarouselPrevious";
 
-export const CarouselNext = forwardRef<HTMLButtonElement, React.ComponentProps<"button">>(
-  ({ className, ...props }, ref) => {
-    const { scrollNext, canScrollNext } = useCarousel();
-    return (
-      <button
-        ref={ref}
-        type="button"
-        disabled={!canScrollNext}
-        className={cn(
-          buttonVariants({ variant: "secondary", size: "icon" }),
-          "absolute right-2 top-1/2 z-10 -translate-y-1/2",
-          className,
-        )}
-        onClick={scrollNext}
-        {...props}
-      >
-        <ArrowRight className="size-4" />
-        <span className="sr-only">Next slide</span>
-      </button>
-    );
-  },
-);
+export const CarouselNext = forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button">
+>(({ className, ...props }, ref) => {
+  const { scrollNext, canScrollNext } = useCarousel();
+  return (
+    <button
+      ref={ref}
+      type="button"
+      disabled={!canScrollNext}
+      className={cn(
+        buttonVariants({ variant: "glass", size: "icon" }),
+        "absolute right-2 top-1/2 z-10 -translate-y-1/2",
+        className,
+      )}
+      onClick={scrollNext}
+      {...props}
+    >
+      <ArrowRight className="size-4" />
+      <span className="sr-only">Next slide</span>
+    </button>
+  );
+});
 CarouselNext.displayName = "CarouselNext";

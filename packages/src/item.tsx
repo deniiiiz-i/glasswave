@@ -17,7 +17,7 @@ export const Item = forwardRef<
       data-variant={variant}
       className={cn(
         "flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm transition-colors",
-        variant === "default" && "hover:bg-white/[0.06] dark:hover:bg-white/[0.08]",
+        variant === "default" && "hover:bg-black/[0.04] dark:hover:bg-white/[0.08] dark:hover:bg-white/[0.08]",
         variant === "glass" && glass,
         className,
       )}
@@ -37,7 +37,7 @@ export function ItemMedia({
       data-slot="item-media"
       data-variant={variant}
       className={cn(
-        "flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/[0.05] [&_svg]:size-5",
+        "flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-black/[0.08] dark:border-white/10 bg-black/[0.04] dark:bg-white/[0.05] [&_svg]:size-5",
         variant === "image" && "border-0 bg-transparent p-0",
         className,
       )}

@@ -1,5 +1,4 @@
 import fs from "fs";
-import { Button } from "glasswave";
 import matter from "gray-matter";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -187,40 +186,43 @@ export default async function DocPage({
       )}
       <MDXRemote source={content} components={components} />
 
-      {/* Navigation */}
-      {/* <nav className="flex items-center justify-between gap-8 mt-12 pt-8">
-        {prev ? (
-          <Link href={`/docs/${prev.slug.join("/")}`}>
-            <Button variant="secondary" size="md" className="group">
-              <span className="flex items-center gap-2">
-                <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform shrink-0" />
-                <span className="flex flex-col text-left">
-                  <span className="text-xs text-gray-500">Previous</span>
-                  <span className="text-sm font-medium">{prev.title}</span>
-                </span>
+      {(prev || next) && (
+        <nav className="mt-14 grid grid-cols-2 gap-4 border-t border-slate-200 pt-8 dark:border-white/10">
+          {prev ? (
+            <Link
+              href={`/docs/${prev.slug.join("/")}`}
+              className="group flex flex-col gap-1 rounded-2xl border border-slate-200 bg-white/50 p-4 transition-colors hover:border-slate-300 hover:bg-white/70 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20 dark:hover:bg-white/[0.06]"
+            >
+              <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-white/50">
+                <ChevronLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
+                Previous
               </span>
-            </Button>
-          </Link>
-        ) : (
-          <div />
-        )}
+              <span className="text-sm font-medium text-slate-900 dark:text-white">
+                {prev.title}
+              </span>
+            </Link>
+          ) : (
+            <div />
+          )}
 
-        {next ? (
-          <Link href={`/docs/${next.slug.join("/")}`}>
-            <Button variant="secondary" size="md" className="group">
-              <span className="flex items-center gap-2">
-                <span className="flex flex-col text-right">
-                  <span className="text-xs text-gray-500">Next</span>
-                  <span className="text-sm font-medium">{next.title}</span>
-                </span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
+          {next ? (
+            <Link
+              href={`/docs/${next.slug.join("/")}`}
+              className="group flex flex-col items-end gap-1 rounded-2xl border border-slate-200 bg-white/50 p-4 text-right transition-colors hover:border-slate-300 hover:bg-white/70 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20 dark:hover:bg-white/[0.06]"
+            >
+              <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-white/50">
+                Next
+                <ChevronRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
-            </Button>
-          </Link>
-        ) : (
-          <div />
-        )}
-      </nav> */}
+              <span className="text-sm font-medium text-slate-900 dark:text-white">
+                {next.title}
+              </span>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </nav>
+      )}
     </article>
   );
 }

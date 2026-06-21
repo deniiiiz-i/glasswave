@@ -8,16 +8,16 @@ export function TooltipPreview() {
     <ComponentPreview label="Tooltip">
       <div className="flex gap-4 items-center">
         <Tooltip content="Tooltip on Top" side="top">
-          <Button variant="secondary">Top</Button>
+          <Button variant="glass">Top</Button>
         </Tooltip>
         <Tooltip content="Tooltip on Bottom" side="bottom">
-          <Button variant="secondary">Bottom</Button>
+          <Button variant="glass">Bottom</Button>
         </Tooltip>
         <Tooltip content="Tooltip on Left" side="left">
-          <Button variant="secondary">Left</Button>
+          <Button variant="glass">Left</Button>
         </Tooltip>
         <Tooltip content="Tooltip on Right" side="right">
-          <Button variant="secondary">Right</Button>
+          <Button variant="glass">Right</Button>
         </Tooltip>
       </div>
     </ComponentPreview>

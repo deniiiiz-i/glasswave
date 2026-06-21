@@ -13,8 +13,37 @@ import { ButtonGroupPreview } from "@/components/previews/button-group-preview";
 import { ButtonGroup, Button } from "glasswave";
 
 <ButtonGroup>
-  <Button size="sm">One</Button>
-  <Button size="sm">Two</Button>
+  <Button>One</Button>
+  <Button>Two</Button>
+  <Button>Three</Button>
+</ButtonGroup>
+```
+
+`ButtonGroup` only handles the joining (shared edges, collapsed inner radii,
+z-index on hover) and does not change the buttons' styling, so **any variant**
+can be grouped. Keep one variant per group for an even seam.
+
+```tsx
+<ButtonGroup>
+  <Button variant="default">Like</Button>
+  <Button variant="default">Repost</Button>
+</ButtonGroup>
+
+<ButtonGroup>
+  <Button variant="destructive">Report</Button>
+  <Button variant="destructive" size="icon" aria-label="More">
+    <MoreHorizontal className="size-4" />
+  </Button>
+</ButtonGroup>
+```
+
+### Vertical
+
+```tsx
+<ButtonGroup orientation="vertical">
+  <Button variant="glass">Top</Button>
+  <Button variant="glass">Middle</Button>
+  <Button variant="glass">Bottom</Button>
 </ButtonGroup>
 ```
 

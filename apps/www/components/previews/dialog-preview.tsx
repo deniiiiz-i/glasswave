@@ -20,7 +20,7 @@ export function DialogPreview() {
     <ComponentPreview label="Dialog">
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="secondary">Edit Profile</Button>
+          <Button variant="glass">Edit Profile</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
@@ -45,7 +45,7 @@ export function DialogPreview() {
           </div>
           <DialogFooter className="flex gap-4 sm:justify-between w-full">
             <DialogClose asChild>
-              <Button variant="secondary" className="flex-1">
+              <Button variant="glass" className="flex-1">
                 Cancel
               </Button>
             </DialogClose>

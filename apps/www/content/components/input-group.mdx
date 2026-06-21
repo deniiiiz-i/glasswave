@@ -21,7 +21,7 @@ import {
   <InputGroupAddon align="inline-start">
     <InputGroupText>https://</InputGroupText>
   </InputGroupAddon>
-  <InputGroupInput className="ps-[4.5rem]" />
+  <InputGroupInput placeholder="example.com" />
 </InputGroup>
 ```
 
@@ -29,7 +29,7 @@ import {
 
 | Part | Notes |
 |------|--------|
-| `InputGroup` | Relative flex wrapper |
-| `InputGroupAddon` | `align`: `"inline-start"` \| `"inline-end"`; `pointer-events-none` for text addons |
-| `InputGroupInput` | Glass input; pad inline start/end to clear addons |
+| `InputGroup` | Glass field surface; flex row that holds the input and addons |
+| `InputGroupAddon` | `align`: `"inline-start"` \| `"inline-end"`; sits inline next to the input |
+| `InputGroupInput` | Transparent borderless input that fills the group |
 | `InputGroupText` | Muted label inside addon |

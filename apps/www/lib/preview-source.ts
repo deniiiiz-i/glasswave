@@ -40,7 +40,9 @@ let cache: Record<string, string> | null = null;
 
 /** Map of exported preview name (e.g. "ButtonPreview") → example source. */
 export function getPreviewSources(): Record<string, string> {
-  if (cache) return cache;
+  // Only memoize in production. In dev the cache would pin the first read for the
+  // life of the server process, so editing a preview never updates the Code panel.
+  if (cache && process.env.NODE_ENV === "production") return cache;
 
   const map: Record<string, string> = {};
   for (const file of fs.readdirSync(previewsDir)) {

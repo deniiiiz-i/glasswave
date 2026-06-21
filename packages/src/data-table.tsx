@@ -1,19 +1,26 @@
 "use client";
 
 import {
+  type Column,
+  type ColumnDef,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
-  useReactTable,
-  type Column,
-  type ColumnDef,
   type SortingState,
+  useReactTable,
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../../lib/cn";
 import { Button } from "./button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table";
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -48,7 +55,12 @@ export function DataTable<TData, TValue>({
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <TableHead key={header.id} className="whitespace-nowrap">
-                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
                 </TableHead>
               ))}
             </TableRow>
@@ -57,15 +69,23 @@ export function DataTable<TData, TValue>({
         <TableBody>
           {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
                 ))}
               </TableRow>
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center text-current/55">
+              <TableCell
+                colSpan={columns.length}
+                className="h-24 text-center text-current/55"
+              >
                 No results.
               </TableCell>
             </TableRow>
@@ -77,14 +97,17 @@ export function DataTable<TData, TValue>({
 }
 
 /** Sortable column header control */
-export function dataTableSortHeader<TData, TValue>(label: string, column: Column<TData, TValue>) {
+export function dataTableSortHeader<TData, TValue>(
+  label: string,
+  column: Column<TData, TValue>,
+) {
   const sorted = column.getIsSorted();
   return (
     <Button
       type="button"
-      variant="secondary"
+      variant="glass"
       size="sm"
-      className="-ml-3 h-8 gap-1 border-0 bg-transparent px-2 shadow-none hover:bg-white/10"
+      className="-ml-3 h-8 gap-1 border-0 bg-transparent px-2 shadow-none hover:bg-black/[0.05] dark:hover:bg-white/10"
       onClick={() => column.toggleSorting(sorted === "asc")}
     >
       {label}

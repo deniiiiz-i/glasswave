@@ -9,6 +9,32 @@
   --font-sans:
     "Inter", "Inter Variable", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
+
+  /* Accordion expand/collapse — smooth height transition driven by Radix's
+     content-height CSS variable. */
+  --animate-accordion-down: accordion-down 0.28s cubic-bezier(0.33, 1, 0.68, 1);
+  --animate-accordion-up: accordion-up 0.22s cubic-bezier(0.33, 1, 0.68, 1);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
 }
 
 @layer components {

@@ -21,7 +21,7 @@ export const Menubar = forwardRef<
     className={cn(
       glassBase,
       textOnGlass,
-      "relative flex h-11 items-center gap-1 rounded-full border border-white/[0.18] px-1.5 shadow-sm dark:border-white/[0.25]",
+      "relative flex h-11 items-center gap-1 rounded-full border border-black/[0.08] px-1.5 shadow-sm dark:border-white/[0.25]",
       className,
     )}
     {...props}
@@ -39,7 +39,7 @@ export const MenubarTrigger = forwardRef<
     ref={ref}
     className={cn(
       "flex cursor-default select-none items-center rounded-full px-3 py-1.5 text-sm font-medium outline-none",
-      "data-[state=open]:bg-white/15 data-[highlighted]:bg-white/10",
+      "data-[state=open]:bg-black/[0.06] dark:data-[state=open]:bg-white/15 data-[highlighted]:bg-black/[0.05] dark:data-[highlighted]:bg-white/10",
       className,
     )}
     {...props}
