@@ -4,7 +4,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/cn";
 
 const buttonGroupVariants = cva(
-  "inline-flex w-fit items-stretch [&>*]:focus-visible:z-10 [&>*]:shadow-none hover:[&>*]:z-10",
+  cn(
+    "inline-flex w-fit items-stretch",
+    // Children stay full Buttons with their own glass surface and hover/press
+    // animation, so a grouped button behaves identically to a standalone one.
+    // Lifting the hovered/focused/active segment keeps its scale, border and
+    // ring above the shared seam instead of being clipped by neighbours.
+    "[&>*]:relative [&>*]:hover:z-10 [&>*]:focus-visible:z-10 [&>*]:active:z-10",
+  ),
   {
     variants: {
       orientation: {
