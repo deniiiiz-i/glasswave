@@ -8,8 +8,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "http://localhost:3000/r/button.json",
-    "http://localhost:3000/r/table.json"
+    "https://glasswave-ui.vercel.app/r/button.json",
+    "https://glasswave-ui.vercel.app/r/table.json"
   ],
   "files": [
     {

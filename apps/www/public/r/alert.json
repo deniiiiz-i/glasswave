@@ -7,7 +7,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "http://localhost:3000/r/glass.json"
+    "https://glasswave-ui.vercel.app/r/glass.json"
   ],
   "files": [
     {

@@ -8,9 +8,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "http://localhost:3000/r/button.json",
-    "http://localhost:3000/r/calendar.json",
-    "http://localhost:3000/r/popover.json"
+    "https://glasswave-ui.vercel.app/r/button.json",
+    "https://glasswave-ui.vercel.app/r/calendar.json",
+    "https://glasswave-ui.vercel.app/r/popover.json"
   ],
   "files": [
     {
