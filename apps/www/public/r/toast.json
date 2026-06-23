@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast",
+  "title": "Toast",
+  "description": "Toast notification component.",
+  "dependencies": [
+    "@radix-ui/react-toast"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/toast.tsx",
+      "content": "\"use client\";\n\nimport * as RadixToast from \"@radix-ui/react-toast\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\ninterface ToastProps {\n  message: string;\n  type?: \"default\" | \"error\";\n  duration?: number;\n  position?:\n    | \"top-left\"\n    | \"top-center\"\n    | \"top-right\"\n    | \"bottom-left\"\n    | \"bottom-center\"\n    | \"bottom-right\";\n  className?: string;\n}\n\nexport function Toast({\n  message,\n  type = \"default\",\n  duration = 5000,\n  position = \"top-right\",\n  className = \"\",\n}: ToastProps) {\n  const variantClasses = {\n    default: \"\",\n    error: \"!text-[#FF3B30]\",\n  } as const;\n\n  const positionClasses = {\n    \"top-left\": \"top-4 left-4\",\n    \"top-center\": \"top-4 left-1/2 -translate-x-1/2\",\n    \"top-right\": \"top-4 right-4\",\n    \"bottom-left\": \"bottom-4 left-4\",\n    \"bottom-center\": \"bottom-4 left-1/2 -translate-x-1/2\",\n    \"bottom-right\": \"bottom-4 right-4\",\n  } as const;\n\n  return (\n    <RadixToast.Provider swipeDirection=\"right\" duration={duration}>\n      <style>{`\n        @keyframes slideInDown {\n          from {\n            opacity: 0;\n            transform: translateY(-20px);\n          }\n          to {\n            opacity: 1;\n            transform: translateY(0);\n          }\n        }\n        @keyframes slideOutUp {\n          from {\n            opacity: 1;\n            transform: translateY(0);\n          }\n          to {\n            opacity: 0;\n            transform: translateY(-20px);\n          }\n        }\n        [data-state='open'] {\n          animation: slideInDown 0.3s ease-out;\n        }\n        [data-state='closed'] {\n          animation: slideOutUp 0.3s ease-in;\n        }\n      `}</style>\n      <RadixToast.Root\n        className={cn(\n          glass,\n          \"border fixed p-4 rounded-[32px] flex items-center justify-between gap-3 z-50 min-w-[300px] max-w-[500px]\",\n          variantClasses[type],\n          positionClasses[position],\n          className,\n        )}\n      >\n        <RadixToast.Description asChild>\n          <span className=\"text-sm\">{message}</span>\n        </RadixToast.Description>\n      </RadixToast.Root>\n      <RadixToast.Viewport className=\"fixed z-[60]\" />\n    </RadixToast.Provider>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

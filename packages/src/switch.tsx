@@ -3,7 +3,7 @@
 import * as RadixSwitch from "@radix-ui/react-switch";
 import { forwardRef } from "react";
 import { cn } from "../../lib/cn";
-import { glass, focusRing } from "../../lib/glass";
+import { focusRing, glass } from "../../lib/glass";
 
 interface SwitchProps {
   checked?: boolean;

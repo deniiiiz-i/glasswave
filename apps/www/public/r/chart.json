@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart",
+  "title": "Chart",
+  "description": "Recharts primitives with a glass container and CSS color tokens.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/chart.tsx",
+      "content": "\"use client\";\n\nimport type { CSSProperties, ReactElement, ReactNode } from \"react\";\nimport { ResponsiveContainer } from \"recharts\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\nexport type ChartConfig = Record<\n  string,\n  {\n    label?: ReactNode;\n    color?: string;\n  }\n>;\n\nexport function ChartContainer({\n  id,\n  className,\n  children,\n  config,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  config: ChartConfig;\n  children: React.ReactNode;\n}) {\n  const style = {\n    ...Object.fromEntries(\n      Object.entries(config).map(([key, item]) => [\n        `--color-${key}`,\n        item.color ?? \"var(--fd-primary, #007AFF)\",\n      ]),\n    ),\n  } as CSSProperties;\n\n  return (\n    <div\n      data-slot=\"chart\"\n      data-chart={id}\n      className={cn(\n        glass,\n        \"w-full p-4 pt-6 text-xs\",\n        \"[&_.recharts-cartesian-axis-tick_text]:fill-current/55 [&_.recharts-text]:fill-current\",\n        className,\n      )}\n      style={style}\n      {...props}\n    >\n      {/* `aspect` derives height from the measured width, so the chart renders\n          as long as it has a definite width (no reliance on parent height). */}\n      <ResponsiveContainer width=\"100%\" aspect={16 / 9}>\n        {children as ReactElement}\n      </ResponsiveContainer>\n    </div>\n  );\n}\n\nexport {\n  Area,\n  AreaChart,\n  Bar,\n  BarChart,\n  CartesianGrid,\n  Cell,\n  Legend,\n  Line,\n  LineChart,\n  ResponsiveContainer,\n  Tooltip,\n  XAxis,\n  YAxis,\n} from \"recharts\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

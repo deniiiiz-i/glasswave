@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "title": "Input Otp",
+  "description": "One-time code slots using input-otp.",
+  "dependencies": [
+    "input-otp",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/input-otp.tsx",
+      "content": "\"use client\";\n\nimport { OTPInput, OTPInputContext } from \"input-otp\";\nimport { Minus } from \"lucide-react\";\nimport { forwardRef, useContext } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { focusRing, glass } from \"@/lib/glass\";\n\nexport const InputOTP = forwardRef<\n  HTMLInputElement,\n  React.ComponentPropsWithoutRef<typeof OTPInput>\n>(({ containerClassName, ...props }, ref) => (\n  <OTPInput\n    ref={ref}\n    containerClassName={cn(\n      \"flex items-center gap-2 has-[:disabled]:opacity-45\",\n      containerClassName,\n    )}\n    {...props}\n  />\n));\nInputOTP.displayName = \"InputOTP\";\n\nexport const InputOTPGroup = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\">\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\"flex items-center gap-1.5\", className)}\n    {...props}\n  />\n));\nInputOTPGroup.displayName = \"InputOTPGroup\";\n\nexport const InputOTPSeparator = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\">\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    role=\"separator\"\n    className={cn(\"text-current/35\", className)}\n    {...props}\n  >\n    <Minus className=\"size-4\" aria-hidden />\n  </div>\n));\nInputOTPSeparator.displayName = \"InputOTPSeparator\";\n\nexport const InputOTPSlot = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const ctx = useContext(OTPInputContext);\n  const slot = ctx?.slots[index];\n  const char = slot?.char ?? null;\n  const isActive = slot?.isActive ?? false;\n\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        glass,\n        focusRing,\n        \"relative flex size-10 items-center justify-center rounded-xl border text-sm font-medium tabular-nums transition-all\",\n        isActive && \"z-10 ring-2 ring-blue-500/40\",\n        className,\n      )}\n      {...props}\n    >\n      {char}\n      {slot?.hasFakeCaret && (\n        <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n          <div className=\"h-4 w-px animate-pulse bg-current duration-1000\" />\n        </div>\n      )}\n    </div>\n  );\n});\nInputOTPSlot.displayName = \"InputOTPSlot\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

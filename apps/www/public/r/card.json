@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "Container for displaying structured information.",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/card.tsx",
+      "content": "import { forwardRef, type HTMLAttributes } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\nconst Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div ref={ref} className={cn(glass, \"shadow-sm\", className)} {...props} />\n  ),\n);\nCard.displayName = \"Card\";\n\nconst CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\"flex flex-col gap-1.5 p-6\", className)}\n      {...props}\n    />\n  ),\n);\nCardHeader.displayName = \"CardHeader\";\n\nconst CardTitle = forwardRef<\n  HTMLParagraphElement,\n  HTMLAttributes<HTMLHeadingElement>\n>(({ className, ...props }, ref) => (\n  <h3\n    ref={ref}\n    className={cn(\n      \"!m-0 text-xl font-semibold leading-none tracking-tight\",\n      className,\n    )}\n    {...props}\n  />\n));\nCardTitle.displayName = \"CardTitle\";\n\nconst CardDescription = forwardRef<\n  HTMLParagraphElement,\n  HTMLAttributes<HTMLParagraphElement>\n>(({ className, ...props }, ref) => (\n  <p\n    ref={ref}\n    className={cn(\"!m-0 text-sm opacity-70\", className)}\n    {...props}\n  />\n));\nCardDescription.displayName = \"CardDescription\";\n\nconst CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div ref={ref} className={cn(\"p-6 pt-0\", className)} {...props} />\n  ),\n);\nCardContent.displayName = \"CardContent\";\n\nconst CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\"flex items-center p-6 pt-0\", className)}\n      {...props}\n    />\n  ),\n);\nCardFooter.displayName = \"CardFooter\";\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardDescription,\n  CardContent,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

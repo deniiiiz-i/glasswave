@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as AvatarPrimitive from "@radix-ui/react-avatar"
-import { cn } from "../../lib/cn"
-import { glass } from "../../lib/glass"
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import * as React from "react";
+import { cn } from "../../lib/cn";
+import { glass } from "../../lib/glass";
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -13,12 +13,12 @@ const Avatar = React.forwardRef<
     ref={ref}
     className={cn(
       "relative inline-flex h-10 w-10 aspect-square shrink-0 overflow-hidden rounded-full",
-      className
+      className,
     )}
     {...props}
   />
-))
-Avatar.displayName = AvatarPrimitive.Root.displayName
+));
+Avatar.displayName = AvatarPrimitive.Root.displayName;
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
@@ -29,8 +29,8 @@ const AvatarImage = React.forwardRef<
     className={cn("aspect-square h-full w-full object-cover", className)}
     {...props}
   />
-))
-AvatarImage.displayName = AvatarPrimitive.Image.displayName
+));
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
@@ -41,11 +41,11 @@ const AvatarFallback = React.forwardRef<
     className={cn(
       glass,
       "flex h-full w-full items-center justify-center rounded-full text-sm font-medium",
-      className
+      className,
     )}
     {...props}
   />
-))
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
+));
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-export { Avatar, AvatarImage, AvatarFallback }
+export { Avatar, AvatarImage, AvatarFallback };

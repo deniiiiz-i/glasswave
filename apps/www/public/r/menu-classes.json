@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu-classes",
+  "title": "Menu Classes",
+  "description": "Shared Radix menu surface class strings.",
+  "files": [
+    {
+      "path": "registry/glasswave/lib/menu-classes.ts",
+      "content": "/** Shared Radix menu surface styles (dropdown / context / menubar). */\nexport const menuContentClass =\n  \"z-50 min-w-[200px] overflow-hidden rounded-2xl p-1.5 shadow-xl\";\n\nexport const menuItemClass =\n  \"relative flex w-full cursor-default select-none items-center gap-2 rounded-xl px-2.5 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:bg-black/[0.07] dark:data-[highlighted]:bg-white/[0.12]\";\n\nexport const menuLabelClass =\n  \"px-2.5 py-1.5 text-xs font-medium uppercase tracking-wide text-current/60\";\n\nexport const menuSeparatorClass =\n  \"-mx-1.5 my-1 h-px bg-black/10 dark:bg-white/10\";\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

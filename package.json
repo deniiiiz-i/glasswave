@@ -37,6 +37,7 @@
   "scripts": {
     "build": "tsc && pnpm exec postcss packages/index.css -o dist/index.css && node -e \"const fs=require('fs');const f='dist/packages/index.js';fs.writeFileSync(f,'import \\\"../index.css\\\";\\n'+fs.readFileSync(f,'utf8'));\"",
     "dev": "tsc --watch & pnpm exec postcss packages/index.css -o dist/index.css --watch",
+    "registry:build": "node scripts/build-registry.mjs && pnpm dlx shadcn@latest build registry.json --output apps/www/public/r",
     "lint": "pnpm -r lint",
     "format": "pnpm -r format"
   },

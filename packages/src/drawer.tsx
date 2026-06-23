@@ -1,7 +1,7 @@
 "use client";
 
-import { Drawer as DrawerPrimitive } from "vaul";
 import { forwardRef } from "react";
+import { Drawer as DrawerPrimitive } from "vaul";
 import { cn } from "../../lib/cn";
 
 export const Drawer = DrawerPrimitive.Root;
@@ -44,12 +44,21 @@ export const DrawerContent = forwardRef<
 ));
 DrawerContent.displayName = "DrawerContent";
 
-export const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("grid gap-1.5 text-center sm:text-left", className)} {...props} />
+export const DrawerHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn("grid gap-1.5 text-center sm:text-left", className)}
+    {...props}
+  />
 );
 DrawerHeader.displayName = "DrawerHeader";
 
-export const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+export const DrawerFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("mt-auto flex flex-col gap-2", className)} {...props} />
 );
 DrawerFooter.displayName = "DrawerFooter";
@@ -60,7 +69,10 @@ export const DrawerTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+    className={cn(
+      "text-lg font-semibold leading-none tracking-tight",
+      className,
+    )}
     {...props}
   />
 ));

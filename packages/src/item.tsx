@@ -7,7 +7,10 @@ import { glass } from "../../lib/glass";
 
 export const Item = forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> & { asChild?: boolean; variant?: "default" | "glass" }
+  React.ComponentProps<"div"> & {
+    asChild?: boolean;
+    variant?: "default" | "glass";
+  }
 >(({ asChild, className, variant = "default", ...props }, ref) => {
   const Comp = asChild ? Slot : "div";
   return (
@@ -17,7 +20,8 @@ export const Item = forwardRef<
       data-variant={variant}
       className={cn(
         "flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm transition-colors",
-        variant === "default" && "hover:bg-black/[0.04] dark:hover:bg-white/[0.08] dark:hover:bg-white/[0.08]",
+        variant === "default" &&
+          "hover:bg-black/[0.04] dark:hover:bg-white/[0.08] dark:hover:bg-white/[0.08]",
         variant === "glass" && glass,
         className,
       )}
@@ -46,7 +50,10 @@ export function ItemMedia({
   );
 }
 
-export function ItemContent({ className, ...props }: React.ComponentProps<"div">) {
+export function ItemContent({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="item-content"
@@ -56,17 +63,26 @@ export function ItemContent({ className, ...props }: React.ComponentProps<"div">
   );
 }
 
-export function ItemTitle({ className, ...props }: React.ComponentProps<"div">) {
+export function ItemTitle({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="item-title"
-      className={cn("truncate font-medium leading-tight text-current", className)}
+      className={cn(
+        "truncate font-medium leading-tight text-current",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
+export function ItemDescription({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="item-description"
@@ -76,8 +92,15 @@ export function ItemDescription({ className, ...props }: React.ComponentProps<"p
   );
 }
 
-export function ItemActions({ className, ...props }: React.ComponentProps<"div">) {
+export function ItemActions({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <div data-slot="item-actions" className={cn("flex shrink-0 items-center gap-1", className)} {...props} />
+    <div
+      data-slot="item-actions"
+      className={cn("flex shrink-0 items-center gap-1", className)}
+      {...props}
+    />
   );
 }

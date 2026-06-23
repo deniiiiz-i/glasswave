@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group",
+  "title": "Input Group",
+  "description": "Text input with start/end addons (URL prefix, currency, etc.).",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/input-group.tsx",
+      "content": "import { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\nexport function InputGroup({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"input-group\"\n      role=\"group\"\n      className={cn(\n        glass,\n        // The group itself is the glass field; the input inside is transparent\n        // and addons sit inline, so no manual padding juggling is needed.\n        \"relative flex h-10 w-full min-w-0 items-center rounded-xl text-sm\",\n        \"transition focus-within:outline-none focus-within:ring-[3px] focus-within:ring-blue-500/40 dark:focus-within:ring-blue-400/50 focus-within:ring-offset-2 focus-within:ring-offset-transparent\",\n        \"has-[input:disabled]:cursor-not-allowed has-[input:disabled]:opacity-50\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport const InputGroupAddon = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> & { align?: \"inline-start\" | \"inline-end\" }\n>(({ className, align = \"inline-start\", ...props }, ref) => (\n  <div\n    ref={ref}\n    role=\"group\"\n    data-slot=\"input-group-addon\"\n    data-align={align}\n    className={cn(\n      \"flex shrink-0 items-center gap-2 text-current/60\",\n      align === \"inline-start\" ? \"ps-3.5\" : \"pe-3.5\",\n      className,\n    )}\n    {...props}\n  />\n));\nInputGroupAddon.displayName = \"InputGroupAddon\";\n\nexport const InputGroupInput = forwardRef<\n  HTMLInputElement,\n  React.ComponentProps<\"input\">\n>(({ className, ...props }, ref) => (\n  <input\n    ref={ref}\n    data-slot=\"input-group-input\"\n    className={cn(\n      \"h-full w-full min-w-0 flex-1 bg-transparent px-3.5 text-sm font-normal outline-none placeholder:text-current/40 disabled:cursor-not-allowed\",\n      className,\n    )}\n    {...props}\n  />\n));\nInputGroupInput.displayName = \"InputGroupInput\";\n\nexport function InputGroupText({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"input-group-text\"\n      className={cn(\"text-sm text-current/70\", className)}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

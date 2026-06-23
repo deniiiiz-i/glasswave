@@ -6,31 +6,46 @@ import { forwardRef, useContext } from "react";
 import { cn } from "../../lib/cn";
 import { focusRing, glass } from "../../lib/glass";
 
-export const InputOTP = forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<typeof OTPInput>>(
-  ({ containerClassName, ...props }, ref) => (
-    <OTPInput
-      ref={ref}
-      containerClassName={cn("flex items-center gap-2 has-[:disabled]:opacity-45", containerClassName)}
-      {...props}
-    />
-  ),
-);
+export const InputOTP = forwardRef<
+  HTMLInputElement,
+  React.ComponentPropsWithoutRef<typeof OTPInput>
+>(({ containerClassName, ...props }, ref) => (
+  <OTPInput
+    ref={ref}
+    containerClassName={cn(
+      "flex items-center gap-2 has-[:disabled]:opacity-45",
+      containerClassName,
+    )}
+    {...props}
+  />
+));
 InputOTP.displayName = "InputOTP";
 
-export const InputOTPGroup = forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex items-center gap-1.5", className)} {...props} />
-  ),
-);
+export const InputOTPGroup = forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div">
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center gap-1.5", className)}
+    {...props}
+  />
+));
 InputOTPGroup.displayName = "InputOTPGroup";
 
-export const InputOTPSeparator = forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} role="separator" className={cn("text-current/35", className)} {...props}>
-      <Minus className="size-4" aria-hidden />
-    </div>
-  ),
-);
+export const InputOTPSeparator = forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div">
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    role="separator"
+    className={cn("text-current/35", className)}
+    {...props}
+  >
+    <Minus className="size-4" aria-hidden />
+  </div>
+));
 InputOTPSeparator.displayName = "InputOTPSeparator";
 
 export const InputOTPSlot = forwardRef<

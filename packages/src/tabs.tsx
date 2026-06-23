@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-import { cn } from "../../lib/cn"
-import { focusRing } from "../../lib/glass"
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import * as React from "react";
+import { cn } from "../../lib/cn";
+import { focusRing } from "../../lib/glass";
 
-const Tabs = TabsPrimitive.Root
+const Tabs = TabsPrimitive.Root;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -15,12 +15,12 @@ const TabsList = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-10 items-center justify-center rounded-full bg-zinc-200 dark:bg-white/10 p-1 text-zinc-500 dark:text-white/60",
-      className
+      className,
     )}
     {...props}
   />
-))
-TabsList.displayName = TabsPrimitive.List.displayName
+));
+TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
@@ -34,12 +34,12 @@ const TabsTrigger = React.forwardRef<
       "data-[state=active]:bg-white data-[state=active]:text-zinc-900 data-[state=active]:shadow-sm",
       "dark:data-[state=active]:bg-white/20 dark:data-[state=active]:text-white dark:data-[state=active]:shadow",
       focusRing,
-      className
+      className,
     )}
     {...props}
   />
-))
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+));
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -50,7 +50,7 @@ const TabsContent = React.forwardRef<
     className={cn("mt-2", focusRing, className)}
     {...props}
   />
-))
-TabsContent.displayName = TabsPrimitive.Content.displayName
+));
+TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsList, TabsTrigger, TabsContent };

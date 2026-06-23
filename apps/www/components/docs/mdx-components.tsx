@@ -2,6 +2,7 @@ import { Separator } from "glasswave";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { Installation } from "./installation";
 
 /** Slugify heading text into an `id` the right-rail TOC can link to. */
 function slugify(node: ReactNode): string {
@@ -15,6 +16,7 @@ function slugify(node: ReactNode): string {
 
 export function getMDXComponents(): MDXComponents {
   return {
+    Installation,
     h1: ({ children }: ComponentPropsWithoutRef<"h1">) => (
       <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2 mt-8 first:mt-0">
         {children}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  "dependencies": [
+    "@radix-ui/react-tabs"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/tabs.tsx",
+      "content": "\"use client\";\n\nimport * as TabsPrimitive from \"@radix-ui/react-tabs\";\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { focusRing } from \"@/lib/glass\";\n\nconst Tabs = TabsPrimitive.Root;\n\nconst TabsList = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.List>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>\n>(({ className, ...props }, ref) => (\n  <TabsPrimitive.List\n    ref={ref}\n    className={cn(\n      \"inline-flex h-10 items-center justify-center rounded-full bg-zinc-200 dark:bg-white/10 p-1 text-zinc-500 dark:text-white/60\",\n      className,\n    )}\n    {...props}\n  />\n));\nTabsList.displayName = TabsPrimitive.List.displayName;\n\nconst TabsTrigger = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.Trigger>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>\n>(({ className, ...props }, ref) => (\n  <TabsPrimitive.Trigger\n    ref={ref}\n    className={cn(\n      \"inline-flex items-center justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium transition-all\",\n      \"disabled:pointer-events-none disabled:opacity-50\",\n      \"data-[state=active]:bg-white data-[state=active]:text-zinc-900 data-[state=active]:shadow-sm\",\n      \"dark:data-[state=active]:bg-white/20 dark:data-[state=active]:text-white dark:data-[state=active]:shadow\",\n      focusRing,\n      className,\n    )}\n    {...props}\n  />\n));\nTabsTrigger.displayName = TabsPrimitive.Trigger.displayName;\n\nconst TabsContent = React.forwardRef<\n  React.ElementRef<typeof TabsPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>\n>(({ className, ...props }, ref) => (\n  <TabsPrimitive.Content\n    ref={ref}\n    className={cn(\"mt-2\", focusRing, className)}\n    {...props}\n  />\n));\nTabsContent.displayName = TabsPrimitive.Content.displayName;\n\nexport { Tabs, TabsList, TabsTrigger, TabsContent };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

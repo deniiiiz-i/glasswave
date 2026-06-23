@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-dialog",
+  "title": "Alert Dialog",
+  "description": "Dialog component for critical confirmations.",
+  "dependencies": [
+    "@radix-ui/react-dialog"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/button.json",
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/alert-dialog.tsx",
+      "content": "\"use client\";\n\nimport * as Dialog from \"@radix-ui/react-dialog\";\nimport { type ComponentPropsWithoutRef, forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\nimport { buttonVariants } from \"@/components/ui/button\";\n\nexport const AlertDialog = Dialog.Root;\nexport const AlertDialogTrigger = Dialog.Trigger;\nexport const AlertDialogPortal = Dialog.Portal;\nexport const AlertDialogClose = Dialog.Close;\n\nexport const AlertDialogContent = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<typeof Dialog.Content>\n>(({ className, children, ...props }, ref) => (\n  <AlertDialogPortal>\n    <Dialog.Overlay className=\"fixed inset-0 z-50 bg-black/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0\" />\n    <div className=\"fixed inset-0 z-50 flex items-center justify-center p-4\">\n      <Dialog.Content\n        ref={ref}\n        className={cn(\n          glass,\n          \"bg-white dark:bg-zinc-950\",\n          \"relative w-full max-w-[400px] overflow-hidden\",\n          \"duration-200 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95\",\n          \"data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95\",\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </Dialog.Content>\n    </div>\n  </AlertDialogPortal>\n));\nAlertDialogContent.displayName = \"AlertDialogContent\";\n\nexport const AlertDialogHeader = ({\n  className = \"\",\n  ...props\n}: { className?: string } & ComponentPropsWithoutRef<\"div\">) => (\n  <div className={cn(\"flex flex-col gap-1.5 p-6\", className)} {...props} />\n);\n\nexport const AlertDialogTitle = ({\n  className = \"\",\n  ...props\n}: ComponentPropsWithoutRef<typeof Dialog.Title>) => (\n  <Dialog.Title\n    className={cn(\"!m-0 text-xl font-semibold tracking-tight\", className)}\n    {...props}\n  />\n);\n\nexport const AlertDialogDescription = ({\n  className = \"\",\n  ...props\n}: ComponentPropsWithoutRef<typeof Dialog.Description>) => (\n  <Dialog.Description\n    className={cn(\"!m-0 text-sm leading-relaxed text-current/70\", className)}\n    {...props}\n  />\n);\n\nexport const AlertDialogFooter = ({\n  className = \"\",\n  ...props\n}: { className?: string } & ComponentPropsWithoutRef<\"div\">) => (\n  <div\n    className={cn(\n      \"flex flex-col-reverse gap-3 p-6 pt-0 sm:flex-row sm:items-center sm:gap-4\",\n      className,\n    )}\n    {...props}\n  />\n);\n\nexport const AlertDialogCancel = ({\n  className = \"\",\n  ...props\n}: ComponentPropsWithoutRef<typeof Dialog.Close>) => (\n  <Dialog.Close\n    className={cn(\n      buttonVariants({ variant: \"glass\" }),\n      \"flex-1 cursor-pointer\",\n      className,\n    )}\n    {...props}\n  />\n);\n\nexport const AlertDialogAction = ({\n  className = \"\",\n  variant = \"default\",\n  ...props\n}: ComponentPropsWithoutRef<\"button\"> & {\n  variant?: \"default\" | \"destructive\";\n}) => (\n  <button\n    className={cn(\n      buttonVariants({ variant }),\n      \"flex-1 cursor-pointer\",\n      className,\n    )}\n    {...props}\n  />\n);\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

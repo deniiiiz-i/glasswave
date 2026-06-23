@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker",
+  "title": "Date Picker",
+  "description": "Popover trigger + single-date Calendar.",
+  "dependencies": [
+    "date-fns",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/button.json",
+    "http://localhost:3000/r/calendar.json",
+    "http://localhost:3000/r/popover.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/date-picker.tsx",
+      "content": "\"use client\";\n\nimport { format } from \"date-fns\";\nimport { Calendar as CalendarIcon } from \"lucide-react\";\nimport { useState } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Calendar } from \"@/components/ui/calendar\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\";\n\nexport interface DatePickerProps {\n  date?: Date;\n  onDateChange?: (date: Date | undefined) => void;\n  placeholder?: string;\n  className?: string;\n  disabled?: boolean;\n  align?: \"start\" | \"center\" | \"end\";\n  /** `date-fns` pattern, default `PPP` */\n  formatPattern?: string;\n}\n\nexport function DatePicker({\n  date,\n  onDateChange,\n  placeholder = \"Pick a date\",\n  className,\n  disabled,\n  align = \"start\",\n  formatPattern = \"PPP\",\n}: DatePickerProps) {\n  const [open, setOpen] = useState(false);\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          type=\"button\"\n          variant=\"glass\"\n          disabled={disabled}\n          className={cn(\n            \"min-w-[240px] justify-start text-left font-normal\",\n            !date && \"text-current/55\",\n            className,\n          )}\n        >\n          <CalendarIcon className=\"size-4 shrink-0 opacity-70\" aria-hidden />\n          {date ? format(date, formatPattern) : placeholder}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align={align}>\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          onSelect={(d) => {\n            onDateChange?.(d);\n            setOpen(false);\n          }}\n          autoFocus\n        />\n      </PopoverContent>\n    </Popover>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

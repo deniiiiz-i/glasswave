@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Multiline text input field.",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/textarea.tsx",
+      "content": "import { forwardRef, type TextareaHTMLAttributes } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { focusRing, glass } from \"@/lib/glass\";\n\ninterface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}\n\nexport const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(\n  ({ className = \"\", ...props }, ref) => {\n    const baseClasses = cn(\n      glass,\n      focusRing,\n      // Match Input: gentle 12px radius and lighter text, with a sensible\n      // minimum height for a multi-line field.\n      \"min-h-20 w-full rounded-xl px-3.5 py-2.5 text-sm font-normal placeholder:text-current/40\",\n      \"resize-none disabled:cursor-not-allowed disabled:opacity-50\",\n    );\n\n    return (\n      <textarea ref={ref} className={cn(baseClasses, className)} {...props} />\n    );\n  },\n);\n\nTextarea.displayName = \"Textarea\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

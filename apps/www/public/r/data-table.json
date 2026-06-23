@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table",
+  "title": "Data Table",
+  "description": "TanStack Table headless bindings with glass table chrome.",
+  "dependencies": [
+    "@tanstack/react-table",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/button.json",
+    "http://localhost:3000/r/table.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/data-table.tsx",
+      "content": "\"use client\";\n\nimport {\n  type Column,\n  type ColumnDef,\n  flexRender,\n  getCoreRowModel,\n  getSortedRowModel,\n  type SortingState,\n  useReactTable,\n} from \"@tanstack/react-table\";\nimport { ArrowDown, ArrowUp, ChevronsUpDown } from \"lucide-react\";\nimport { useState } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@/components/ui/table\";\n\nexport interface DataTableProps<TData, TValue> {\n  columns: ColumnDef<TData, TValue>[];\n  data: TData[];\n  className?: string;\n  /** Enable client-side sorting for sortable columns */\n  enableSorting?: boolean;\n}\n\nexport function DataTable<TData, TValue>({\n  columns,\n  data,\n  className,\n  enableSorting = true,\n}: DataTableProps<TData, TValue>) {\n  const [sorting, setSorting] = useState<SortingState>([]);\n\n  const table = useReactTable({\n    data,\n    columns,\n    state: enableSorting ? { sorting } : undefined,\n    onSortingChange: enableSorting ? setSorting : undefined,\n    getCoreRowModel: getCoreRowModel(),\n    getSortedRowModel: enableSorting ? getSortedRowModel() : undefined,\n  });\n\n  return (\n    <div className={cn(\"w-full space-y-4\", className)}>\n      <Table>\n        <TableHeader>\n          {table.getHeaderGroups().map((headerGroup) => (\n            <TableRow key={headerGroup.id}>\n              {headerGroup.headers.map((header) => (\n                <TableHead key={header.id} className=\"whitespace-nowrap\">\n                  {header.isPlaceholder\n                    ? null\n                    : flexRender(\n                        header.column.columnDef.header,\n                        header.getContext(),\n                      )}\n                </TableHead>\n              ))}\n            </TableRow>\n          ))}\n        </TableHeader>\n        <TableBody>\n          {table.getRowModel().rows.length ? (\n            table.getRowModel().rows.map((row) => (\n              <TableRow\n                key={row.id}\n                data-state={row.getIsSelected() && \"selected\"}\n              >\n                {row.getVisibleCells().map((cell) => (\n                  <TableCell key={cell.id}>\n                    {flexRender(cell.column.columnDef.cell, cell.getContext())}\n                  </TableCell>\n                ))}\n              </TableRow>\n            ))\n          ) : (\n            <TableRow>\n              <TableCell\n                colSpan={columns.length}\n                className=\"h-24 text-center text-current/55\"\n              >\n                No results.\n              </TableCell>\n            </TableRow>\n          )}\n        </TableBody>\n      </Table>\n    </div>\n  );\n}\n\n/** Sortable column header control */\nexport function dataTableSortHeader<TData, TValue>(\n  label: string,\n  column: Column<TData, TValue>,\n) {\n  const sorted = column.getIsSorted();\n  return (\n    <Button\n      type=\"button\"\n      variant=\"glass\"\n      size=\"sm\"\n      className=\"-ml-3 h-8 gap-1 border-0 bg-transparent px-2 shadow-none hover:bg-black/[0.05] dark:hover:bg-white/10\"\n      onClick={() => column.toggleSorting(sorted === \"asc\")}\n    >\n      {label}\n      {sorted === \"desc\" ? (\n        <ArrowDown className=\"size-3.5\" />\n      ) : sorted === \"asc\" ? (\n        <ArrowUp className=\"size-3.5\" />\n      ) : (\n        <ChevronsUpDown className=\"size-3.5 opacity-50\" />\n      )}\n    </Button>\n  );\n}\n\nexport type { ColumnDef };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

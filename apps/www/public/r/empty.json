@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "title": "Empty",
+  "description": "Empty-state layout with media, title, and actions.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/empty.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\nexport function Empty({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"empty\"\n      className={cn(\n        \"flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-[32px] border border-dashed border-black/10 dark:border-white/15 p-10 text-center\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function EmptyHeader({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"empty-header\"\n      className={cn(\n        \"flex max-w-sm flex-col items-center gap-2 text-center\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function EmptyMedia({\n  className,\n  variant = \"default\",\n  ...props\n}: React.ComponentProps<\"div\"> & { variant?: \"default\" | \"icon\" }) {\n  return (\n    <div\n      data-slot=\"empty-media\"\n      data-variant={variant}\n      className={cn(\n        \"flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n        variant === \"default\" &&\n          \"bg-black/[0.04] dark:bg-white/[0.06] rounded-2xl size-12 border border-black/[0.08] dark:border-white/10 [&_svg:not([class*='size-'])]:size-6\",\n        variant === \"icon\" &&\n          \"bg-transparent [&_svg:not([class*='size-'])]:size-10 text-current/50\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function EmptyTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"empty-title\"\n      className={cn(\n        \"text-lg font-semibold tracking-tight text-current\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function EmptyDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"empty-description\"\n      className={cn(\n        \"text-sm text-current/65 [&>a:hover]:text-current [&>a]:underline [&>a]:underline-offset-4\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function EmptyContent({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"empty-content\"\n      className={cn(\n        \"flex w-full max-w-sm min-w-0 flex-col items-center gap-4\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

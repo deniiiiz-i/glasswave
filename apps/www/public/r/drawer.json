@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "title": "Drawer",
+  "description": "Bottom sheet built on Vaul (mobile-friendly).",
+  "dependencies": [
+    "vaul"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/drawer.tsx",
+      "content": "\"use client\";\n\nimport { forwardRef } from \"react\";\nimport { Drawer as DrawerPrimitive } from \"vaul\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Drawer = DrawerPrimitive.Root;\nexport const DrawerTrigger = DrawerPrimitive.Trigger;\nexport const DrawerPortal = DrawerPrimitive.Portal;\nexport const DrawerClose = DrawerPrimitive.Close;\nexport const DrawerHandle = DrawerPrimitive.Handle;\n\nexport const DrawerOverlay = forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>\n>(({ className, ...props }, ref) => (\n  <DrawerPrimitive.Overlay\n    ref={ref}\n    className={cn(\"fixed inset-0 z-50 bg-black/50 backdrop-blur-sm\", className)}\n    {...props}\n  />\n));\nDrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;\n\nexport const DrawerContent = forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>\n>(({ className, children, ...props }, ref) => (\n  <DrawerPortal>\n    <DrawerOverlay />\n    <DrawerPrimitive.Content\n      ref={ref}\n      className={cn(\n        \"bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50\",\n        \"fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto max-h-[96vh] flex-col rounded-t-[32px] border-t border-zinc-200 dark:border-white/10 p-6 pt-2\",\n        className,\n      )}\n      {...props}\n    >\n      <DrawerPrimitive.Handle className=\"mx-auto mb-4 h-1.5 w-12 shrink-0 rounded-full bg-zinc-300 dark:bg-white/25\" />\n      {children}\n    </DrawerPrimitive.Content>\n  </DrawerPortal>\n));\nDrawerContent.displayName = \"DrawerContent\";\n\nexport const DrawerHeader = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => (\n  <div\n    className={cn(\"grid gap-1.5 text-center sm:text-left\", className)}\n    {...props}\n  />\n);\nDrawerHeader.displayName = \"DrawerHeader\";\n\nexport const DrawerFooter = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => (\n  <div className={cn(\"mt-auto flex flex-col gap-2\", className)} {...props} />\n);\nDrawerFooter.displayName = \"DrawerFooter\";\n\nexport const DrawerTitle = forwardRef<\n  HTMLHeadingElement,\n  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>\n>(({ className, ...props }, ref) => (\n  <DrawerPrimitive.Title\n    ref={ref}\n    className={cn(\n      \"text-lg font-semibold leading-none tracking-tight\",\n      className,\n    )}\n    {...props}\n  />\n));\nDrawerTitle.displayName = DrawerPrimitive.Title.displayName;\n\nexport const DrawerDescription = forwardRef<\n  HTMLParagraphElement,\n  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>\n>(({ className, ...props }, ref) => (\n  <DrawerPrimitive.Description\n    ref={ref}\n    className={cn(\"text-sm text-current/70\", className)}\n    {...props}\n  />\n));\nDrawerDescription.displayName = DrawerPrimitive.Description.displayName;\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

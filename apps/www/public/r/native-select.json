@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select",
+  "title": "Native Select",
+  "description": "Styled native `<select>` with glass appearance.",
+  "dependencies": [],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/native-select.tsx",
+      "content": "import { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { focusRing, glass } from \"@/lib/glass\";\n\nexport interface NativeSelectProps extends React.ComponentProps<\"select\"> {}\n\nexport const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(\n  ({ className, children, ...props }, ref) => (\n    <select\n      ref={ref}\n      data-slot=\"native-select\"\n      className={cn(\n        glass,\n        focusRing,\n        \"h-10 w-full appearance-none rounded-xl bg-transparent px-4 py-2 pr-10 text-base\",\n        \"bg-[length:1rem] bg-[right_0.75rem_center] bg-no-repeat\",\n        \"[background-image:url(\\\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\\\")]\",\n        \"dark:[background-image:url(\\\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\\\")]\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </select>\n  ),\n);\nNativeSelect.displayName = \"NativeSelect\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

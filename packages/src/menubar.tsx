@@ -50,25 +50,41 @@ MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName;
 export const MenubarContent = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
->(({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => (
-  <MenubarPrimitive.Portal>
-    <MenubarPrimitive.Content
-      ref={ref}
-      align={align}
-      alignOffset={alignOffset}
-      sideOffset={sideOffset}
-      className={cn(glass, menuContentClass, "animate-in fade-in-0 zoom-in-95", className)}
-      {...props}
-    />
-  </MenubarPrimitive.Portal>
-));
+>(
+  (
+    { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+    ref,
+  ) => (
+    <MenubarPrimitive.Portal>
+      <MenubarPrimitive.Content
+        ref={ref}
+        align={align}
+        alignOffset={alignOffset}
+        sideOffset={sideOffset}
+        className={cn(
+          glass,
+          menuContentClass,
+          "animate-in fade-in-0 zoom-in-95",
+          className,
+        )}
+        {...props}
+      />
+    </MenubarPrimitive.Portal>
+  ),
+);
 MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
 export const MenubarItem = forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & { inset?: boolean }
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
+    inset?: boolean;
+  }
 >(({ className, inset, ...props }, ref) => (
-  <MenubarPrimitive.Item ref={ref} className={cn(menuItemClass, inset && "pl-8", className)} {...props} />
+  <MenubarPrimitive.Item
+    ref={ref}
+    className={cn(menuItemClass, inset && "pl-8", className)}
+    {...props}
+  />
 ));
 MenubarItem.displayName = MenubarPrimitive.Item.displayName;
 
@@ -96,7 +112,11 @@ export const MenubarRadioItem = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
-  <MenubarPrimitive.RadioItem ref={ref} className={cn(menuItemClass, "pl-8", className)} {...props}>
+  <MenubarPrimitive.RadioItem
+    ref={ref}
+    className={cn(menuItemClass, "pl-8", className)}
+    {...props}
+  >
     <span className="absolute left-2 flex size-4 items-center justify-center">
       <MenubarPrimitive.ItemIndicator>
         <Circle className="size-2 fill-current" />
@@ -109,7 +129,9 @@ MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
 
 export const MenubarLabel = forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Label> & { inset?: boolean }
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Label> & {
+    inset?: boolean;
+  }
 >(({ className, inset, ...props }, ref) => (
   <MenubarPrimitive.Label
     ref={ref}
@@ -123,19 +145,31 @@ export const MenubarSeparator = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <MenubarPrimitive.Separator ref={ref} className={cn(menuSeparatorClass, className)} {...props} />
+  <MenubarPrimitive.Separator
+    ref={ref}
+    className={cn(menuSeparatorClass, className)}
+    {...props}
+  />
 ));
 MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName;
 
-export const MenubarShortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
-  <span className={cn("ml-auto text-xs tracking-widest text-current/50", className)} {...props} />
+export const MenubarShortcut = ({
+  className,
+  ...props
+}: React.ComponentProps<"span">) => (
+  <span
+    className={cn("ml-auto text-xs tracking-widest text-current/50", className)}
+    {...props}
+  />
 );
 
 export const MenubarSub = MenubarPrimitive.Sub;
 
 export const MenubarSubTrigger = forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & { inset?: boolean }
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & {
+    inset?: boolean;
+  }
 >(({ className, inset, children, ...props }, ref) => (
   <MenubarPrimitive.SubTrigger
     ref={ref}
@@ -154,7 +188,12 @@ export const MenubarSubContent = forwardRef<
 >(({ className, ...props }, ref) => (
   <MenubarPrimitive.SubContent
     ref={ref}
-    className={cn(glass, menuContentClass, "animate-in fade-in-0 zoom-in-95", className)}
+    className={cn(
+      glass,
+      menuContentClass,
+      "animate-in fade-in-0 zoom-in-95",
+      className,
+    )}
     {...props}
   />
 ));

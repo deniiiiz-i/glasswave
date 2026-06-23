@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "title": "Alert",
+  "description": "Displays a callout for user attention.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/alert.tsx",
+      "content": "import { CircleAlert, CircleCheck, Info, TriangleAlert } from \"lucide-react\";\nimport type { ComponentType, ReactNode } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\ntype AlertVariant = \"default\" | \"destructive\" | \"success\" | \"warning\";\n\nconst variantConfig: Record<\n  AlertVariant,\n  { icon: ComponentType<{ className?: string }>; accent: string }\n> = {\n  default: { icon: Info, accent: \"text-[#007AFF]\" },\n  destructive: { icon: CircleAlert, accent: \"text-[#FF3B30]\" },\n  success: { icon: CircleCheck, accent: \"text-[#34C759]\" },\n  warning: { icon: TriangleAlert, accent: \"text-[#FF9500]\" },\n};\n\ninterface AlertProps {\n  children: ReactNode;\n  variant?: AlertVariant;\n  className?: string;\n  /** Custom leading icon. Pass `null` to hide the icon entirely. */\n  icon?: ReactNode;\n}\n\nexport function Alert({\n  children,\n  variant = \"default\",\n  className = \"\",\n  icon,\n}: AlertProps) {\n  const { icon: DefaultIcon, accent } = variantConfig[variant];\n  const showIcon = icon !== null;\n\n  return (\n    <div\n      role=\"alert\"\n      data-variant={variant}\n      className={cn(glass, \"flex items-start gap-3 p-4\", className)}\n    >\n      {showIcon && (\n        <span className={cn(\"mt-0.5 shrink-0 [&_svg]:size-5\", accent)}>\n          {icon ?? <DefaultIcon />}\n        </span>\n      )}\n      <div className=\"flex min-w-0 flex-col gap-1\">{children}</div>\n    </div>\n  );\n}\n\ninterface AlertTitleProps {\n  children: ReactNode;\n  className?: string;\n}\n\nexport function AlertTitle({ children, className = \"\" }: AlertTitleProps) {\n  return (\n    <div className={cn(\"font-semibold leading-6 tracking-tight\", className)}>\n      {children}\n    </div>\n  );\n}\n\ninterface AlertDescriptionProps {\n  children: ReactNode;\n  className?: string;\n}\n\nexport function AlertDescription({\n  children,\n  className = \"\",\n}: AlertDescriptionProps) {\n  return (\n    <div className={cn(\"text-sm leading-relaxed text-current/70\", className)}>\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

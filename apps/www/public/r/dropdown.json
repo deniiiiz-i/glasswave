@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown",
+  "title": "Dropdown",
+  "description": "Dropdown menu for options selection.",
+  "dependencies": [
+    "@radix-ui/react-dropdown-menu"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/glass.json",
+    "http://localhost:3000/r/menu-classes.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/dropdown.tsx",
+      "content": "\"use client\";\n\nimport * as DropdownMenuPrimitive from \"@radix-ui/react-dropdown-menu\";\nimport { type ComponentPropsWithoutRef, forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\nimport {\n  menuContentClass,\n  menuItemClass,\n  menuLabelClass,\n  menuSeparatorClass,\n} from \"@/lib/menu-classes\";\n\nexport const DropdownMenu = DropdownMenuPrimitive.Root;\nexport const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;\nexport const DropdownMenuGroup = DropdownMenuPrimitive.Group;\nexport const DropdownMenuPortal = DropdownMenuPrimitive.Portal;\nexport const DropdownMenuSub = DropdownMenuPrimitive.Sub;\nexport const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;\n\nexport const DropdownMenuContent = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>\n>(({ className, sideOffset = 6, ...props }, ref) => (\n  <DropdownMenuPrimitive.Portal>\n    <DropdownMenuPrimitive.Content\n      ref={ref}\n      sideOffset={sideOffset}\n      className={cn(\n        glass,\n        menuContentClass,\n        \"animate-in fade-in-0 zoom-in-95\",\n        className,\n      )}\n      {...props}\n    />\n  </DropdownMenuPrimitive.Portal>\n));\nDropdownMenuContent.displayName = \"DropdownMenuContent\";\n\nexport const DropdownMenuItem = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.Item\n    ref={ref}\n    className={cn(menuItemClass, className)}\n    {...props}\n  />\n));\nDropdownMenuItem.displayName = \"DropdownMenuItem\";\n\nexport const DropdownMenuLabel = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.Label\n    ref={ref}\n    className={cn(menuLabelClass, className)}\n    {...props}\n  />\n));\nDropdownMenuLabel.displayName = \"DropdownMenuLabel\";\n\nexport const DropdownMenuSeparator = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>\n>(({ className, ...props }, ref) => (\n  <DropdownMenuPrimitive.Separator\n    ref={ref}\n    className={cn(menuSeparatorClass, className)}\n    {...props}\n  />\n));\nDropdownMenuSeparator.displayName = \"DropdownMenuSeparator\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

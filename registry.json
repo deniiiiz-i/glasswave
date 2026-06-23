@@ -1,0 +1,1070 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "glasswave",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "glass",
+      "type": "registry:lib",
+      "title": "Glass",
+      "description": "Glassmorphism class-string utilities and the glass surface CSS.",
+      "files": [
+        {
+          "path": "registry/glasswave/lib/glass.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "css": {
+        "@layer components": {
+          ".glass-edge::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "border-radius": "inherit",
+            "padding": "1px",
+            "background": "linear-gradient(to bottom, rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.12) 40%, rgb(255 255 255 / 0.05))",
+            "-webkit-mask": "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            "mask": "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            "-webkit-mask-composite": "xor",
+            "mask-composite": "exclude",
+            "pointer-events": "none"
+          },
+          ".glass-noise::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "border-radius": "inherit",
+            "background-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+            "background-size": "160px 160px",
+            "opacity": "0.035",
+            "pointer-events": "none"
+          }
+        }
+      }
+    },
+    {
+      "name": "menu-classes",
+      "type": "registry:lib",
+      "title": "Menu Classes",
+      "description": "Shared Radix menu surface class strings.",
+      "files": [
+        {
+          "path": "registry/glasswave/lib/menu-classes.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Dialog component for critical confirmations.",
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json",
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Displays content within a desired ratio.",
+      "dependencies": [
+        "@radix-ui/react-aspect-ratio"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An image element with a fallback for representing the user.",
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small labels for categorizing or highlighting content.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Navigation trail for the current page hierarchy.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Interactive button component.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Group related buttons with shared edges and radius.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Accessible date grid built on react-day-picker v9.",
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Container for displaying structured information.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Embla-powered horizontal slider with prev/next controls.",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Recharts primitives with a glass container and CSS color tokens.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox for boolean input.",
+      "dependencies": [
+        "@radix-ui/react-checkbox"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "An interactive component which expands/collapses a panel.",
+      "dependencies": [
+        "@radix-ui/react-collapsible"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Searchable select pattern using Popover + Command.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json",
+        "http://localhost:3000/r/command.json",
+        "http://localhost:3000/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Command palette and searchable lists (cmdk).",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Right-click (or long-press) menu with glass styling.",
+      "dependencies": [
+        "@radix-ui/react-context-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json",
+        "http://localhost:3000/r/menu-classes.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "TanStack Table headless bindings with glass table chrome.",
+      "dependencies": [
+        "@tanstack/react-table",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json",
+        "http://localhost:3000/r/table.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "Popover trigger + single-date Calendar.",
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json",
+        "http://localhost:3000/r/calendar.json",
+        "http://localhost:3000/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Accessible dialog component.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "Radix direction context for RTL-aware components.",
+      "dependencies": [
+        "@radix-ui/react-direction"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Bottom sheet built on Vaul (mobile-friendly).",
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:ui",
+      "title": "Dropdown",
+      "description": "Dropdown menu for options selection.",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json",
+        "http://localhost:3000/r/menu-classes.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/dropdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Empty-state layout with media, title, and actions.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "\"Form field primitives: label, hint, and error.\"",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "For sighted users to preview content available behind a link.",
+      "dependencies": [
+        "@radix-ui/react-hover-card"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input field.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Text input with start/end addons (URL prefix, currency, etc.).",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input Otp",
+      "description": "One-time code slots using input-otp.",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "List row with optional glass variant and media slot.",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard shortcut chip.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible label associated with controls.",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Horizontal menu bar with nested dropdowns.",
+      "dependencies": [
+        "@radix-ui/react-menubar",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json",
+        "http://localhost:3000/r/menu-classes.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "Styled native `<select>` with glass appearance.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Site navigation with animated viewports (Radix Navigation Menu).",
+      "dependencies": [
+        "@radix-ui/react-navigation-menu",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page navigation list with glass buttons.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Displays rich content in a portal, triggered by a button.",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Displays an indicator showing the completion progress of a task.",
+      "dependencies": [
+        "@radix-ui/react-progress"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radio group button for single selection.",
+      "dependencies": [
+        "@radix-ui/react-radio-group"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Split panes with react-resizable-panels v4 (`Group` / `Panel` / `Separator`).",
+      "dependencies": [
+        "lucide-react",
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Augments native scroll functionality for custom, cross-browser styling.",
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Select dropdown for options.",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Visually or semantically separates content.",
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Slide-over panel using Radix Dialog with side variants.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Collapsible glass sidebar shell with context state.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/button.json",
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Placeholder to show while content is loading.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "An input where the user selects a value from within a given range.",
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "An animated loading indicator.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switch component.",
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Semantic table with glass wrapper and hover rows.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multiline text input field.",
+      "dependencies": [],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Toast notification component.",
+      "dependencies": [
+        "@radix-ui/react-toast"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button that can be either on or off.",
+      "dependencies": [
+        "@radix-ui/react-toggle",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A set of two-state buttons that can be toggled on or off.",
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/toggle.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Tooltip for hints and info.",
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:ui",
+      "title": "Typography",
+      "description": "Opinionated text styles for headings, body, and code.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/glasswave/ui/typography.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

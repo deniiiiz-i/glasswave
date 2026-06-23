@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "An animated loading indicator.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/spinner.tsx",
+      "content": "import { LoaderIcon } from \"lucide-react\";\nimport { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {\n  size?: \"sm\" | \"md\" | \"lg\" | \"xl\";\n}\n\nconst spinnerSizes = {\n  sm: \"h-4 w-4\",\n  md: \"h-6 w-6\",\n  lg: \"h-8 w-8\",\n  xl: \"h-12 w-12\",\n};\n\nexport const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(\n  ({ className, size = \"md\", ...props }, ref) => {\n    return (\n      <div\n        ref={ref}\n        className={cn(\n          \"text-gray-400 dark:text-white/50\",\n          spinnerSizes[size],\n          className,\n        )}\n        {...props}\n      >\n        <LoaderIcon className={cn(\"h-full w-full animate-spin\")} />\n      </div>\n    );\n  },\n);\n\nSpinner.displayName = \"Spinner\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
