@@ -1,0 +1,33 @@
+---
+title: CLI
+description: Install individual components straight into your project with the shadcn CLI.
+---
+
+Glasswave ships as a [shadcn](https://ui.shadcn.com)-compatible registry, so besides the [npm package](/docs/installation) you can pull individual components into your own source tree. The CLI copies the component file into your project (under your configured alias) and installs any dependencies it needs.
+
+## Prerequisites
+
+Your project needs a `components.json` — the shadcn config that tells the CLI where your aliases and styles live. If you don't have one yet, run:
+
+<CliCommand args="init" />
+
+## Add a component
+
+Point the `add` command at a component's registry URL. The required glass utilities and CSS are listed as registry dependencies, so they're pulled in automatically the first time.
+
+<CliCommand add="button" />
+
+Every component page lists its own ready-to-copy command under the **Command** tab — for example the [Button](/docs/components/button) page.
+
+## Add several at once
+
+You can pass multiple registry URLs in a single call:
+
+```sh
+npx shadcn@latest add \
+  http://localhost:3000/r/button.json \
+  http://localhost:3000/r/card.json \
+  http://localhost:3000/r/dialog.json
+```
+
+> Components installed this way live in your project as editable source — tweak them freely. If you'd rather consume Glasswave as a versioned dependency, use the [npm package](/docs/installation) instead.

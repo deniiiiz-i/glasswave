@@ -2,6 +2,7 @@
 
 import { Code2, Eye } from "lucide-react";
 import { type ReactNode, useState } from "react";
+import { CodeBlock } from "@/components/docs/code-block";
 import { usePreviewSource } from "@/components/preview-source-context";
 
 interface ComponentPreviewProps {
@@ -40,9 +41,9 @@ export function ComponentPreview({ children, label }: ComponentPreviewProps) {
       </div>
 
       {showCode && code ? (
-        <pre className="m-0 max-h-[420px] overflow-auto bg-slate-100 p-5 font-mono text-[13px] leading-relaxed text-slate-800 dark:bg-[#060608] dark:text-white/90">
-          <code>{code}</code>
-        </pre>
+        <div className="bg-slate-100 p-3 dark:bg-[#060608]">
+          <CodeBlock code={code} scroll />
+        </div>
       ) : (
         <div className="gw-stage-dots relative flex min-h-[168px] flex-wrap items-center justify-center gap-4 bg-slate-100 p-11 dark:bg-[#060608]">
           <div className="relative z-[1] flex w-full flex-wrap items-center justify-center gap-4">

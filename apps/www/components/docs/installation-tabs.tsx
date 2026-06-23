@@ -27,7 +27,7 @@ const addCommand = (pm: PackageManager, url: string) =>
     bun: `bunx --bun shadcn@latest add ${url}`,
   })[pm];
 
-function PackageManagerSelector({
+export function PackageManagerSelector({
   pm,
   onChange,
 }: {

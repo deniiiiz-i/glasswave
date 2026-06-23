@@ -5,11 +5,17 @@ import { useState } from "react";
 
 interface CodeBlockProps {
   code: string;
-  /** Constrain tall source blocks; commands stay un-scrolled. */
+  /** Constrain tall blocks with a vertical scroll. */
   scroll?: boolean;
+  /** IDE-style line numbers in a left gutter (default on). */
+  showLineNumbers?: boolean;
 }
 
-export function CodeBlock({ code, scroll = false }: CodeBlockProps) {
+export function CodeBlock({
+  code,
+  scroll = false,
+  showLineNumbers = true,
+}: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -22,20 +28,38 @@ export function CodeBlock({ code, scroll = false }: CodeBlockProps) {
     }
   };
 
+  const lines = code.replace(/\n+$/, "").split("\n");
+
   return (
     <div className="group relative">
       <pre
-        className={`m-0 overflow-x-auto rounded-xl border border-slate-200 bg-slate-100 p-4 pr-12 font-mono text-[13px] leading-relaxed text-slate-800 dark:border-white/10 dark:bg-[#060608] dark:text-white/90 ${
+        className={`m-0 overflow-x-auto rounded-xl border border-slate-200 bg-slate-100 py-4 font-mono text-[13px] leading-relaxed text-slate-800 dark:border-white/10 dark:bg-[#060608] dark:text-white/90 ${
           scroll ? "max-h-[420px] overflow-y-auto" : ""
         }`}
       >
-        <code>{code}</code>
+        <code className="block min-w-full">
+          {lines.map((line, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: static code, lines never reorder
+            <span key={i} className="flex">
+              {showLineNumbers && (
+                <span className="sticky left-0 w-14 shrink-0 select-none bg-slate-100 pr-3 pl-4 text-right text-slate-400 tabular-nums dark:bg-[#060608] dark:text-white/25">
+                  {i + 1}
+                </span>
+              )}
+              <span
+                className={`whitespace-pre pr-4 ${showLineNumbers ? "" : "pl-4"}`}
+              >
+                {line || " "}
+              </span>
+            </span>
+          ))}
+        </code>
       </pre>
       <button
         type="button"
         onClick={copy}
         aria-label={copied ? "Copied" : "Copy to clipboard"}
-        className="absolute right-2.5 top-2.5 inline-flex size-7 items-center justify-center rounded-lg border border-slate-200 bg-white/70 text-slate-500 transition-colors hover:text-slate-900 dark:border-white/12 dark:bg-white/5 dark:text-white/60 dark:hover:text-white"
+        className="absolute top-2.5 right-2.5 inline-flex size-7 items-center justify-center rounded-lg border border-slate-200 bg-white/70 text-slate-500 transition-colors hover:text-slate-900 dark:border-white/12 dark:bg-white/5 dark:text-white/60 dark:hover:text-white"
       >
         {copied ? (
           <Check className="size-3.5" />

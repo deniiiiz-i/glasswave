@@ -1,8 +1,23 @@
 import { Separator } from "glasswave";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  isValidElement,
+  type ReactNode,
+} from "react";
+import { CliCommand } from "./cli-command";
+import { CodeBlock } from "./code-block";
 import { Installation } from "./installation";
+
+/** Recursively pull the plain text out of a fenced code block's children. */
+function codeText(node: ReactNode): string {
+  if (typeof node === "string") return node;
+  if (Array.isArray(node)) return node.map(codeText).join("");
+  if (isValidElement(node))
+    return codeText((node.props as { children?: ReactNode }).children);
+  return "";
+}
 
 /** Slugify heading text into an `id` the right-rail TOC can link to. */
 function slugify(node: ReactNode): string {
@@ -17,6 +32,7 @@ function slugify(node: ReactNode): string {
 export function getMDXComponents(): MDXComponents {
   return {
     Installation,
+    CliCommand,
     h1: ({ children }: ComponentPropsWithoutRef<"h1">) => (
       <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2 mt-8 first:mt-0">
         {children}
@@ -71,9 +87,9 @@ export function getMDXComponents(): MDXComponents {
     ),
     hr: () => <Separator className="my-8 opacity-20" />,
     pre: ({ children }: ComponentPropsWithoutRef<"pre">) => (
-      <pre className="rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 overflow-x-auto text-sm leading-relaxed mb-4 text-slate-800 dark:text-white/90">
-        {children}
-      </pre>
+      <div className="mb-4">
+        <CodeBlock code={codeText(children).replace(/\n$/, "")} />
+      </div>
     ),
     code: ({ children, className }: ComponentPropsWithoutRef<"code">) => {
       // Block code (inside pre) already styled by pre
