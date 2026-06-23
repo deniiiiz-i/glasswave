@@ -9,6 +9,7 @@ import path from "path";
 import { getMDXComponents } from "@/components/docs/mdx-components";
 import { PreviewSourceProvider } from "@/components/preview-source-context";
 import * as previews from "@/components/previews";
+import { nav } from "@/lib/nav";
 import { getPreviewSources } from "@/lib/preview-source";
 import { siteConfig } from "@/lib/site-config";
 
@@ -30,47 +31,30 @@ interface PageInfo {
   title: string;
 }
 
-function getAllPages(): PageInfo[] {
-  const pages: PageInfo[] = [];
+/** Turn a nav href into the slug the `[...slug]` route uses (`/docs` → index). */
+function hrefToSlug(href: string): string[] {
+  const rest = href.replace(/^\/docs\/?/, "");
+  return rest === "" ? ["index"] : rest.split("/");
+}
 
-  function walk(dir: string, base: string[] = []) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-    // Sort entries to ensure consistent order
-    entries.sort((a, b) => {
-      // index files first
-      if (a.name === "index.mdx") return -1;
-      if (b.name === "index.mdx") return 1;
-      return a.name.localeCompare(b.name);
-    });
-
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        walk(path.join(dir, entry.name), [...base, entry.name]);
-      } else if (entry.name.endsWith(".mdx")) {
-        const filePath = path.join(dir, entry.name);
-        const source = fs.readFileSync(filePath, "utf-8");
-        const { data } = matter(source);
-
-        pages.push({
-          slug: [...base, entry.name.replace(/\.mdx$/, "")],
-          title: data.title || entry.name.replace(/\.mdx$/, ""),
-        });
-      }
-    }
-  }
-
-  walk(contentDir);
-  return pages;
+/** Every doc page in sidebar order — the source of truth for prev/next. */
+function getOrderedPages(): PageInfo[] {
+  return nav.flatMap((section) =>
+    section.items.map((item) => ({
+      slug: hrefToSlug(item.href),
+      title: item.title,
+    })),
+  );
 }
 
 function getNavigation(currentSlug: string[]): {
   prev?: PageInfo;
   next?: PageInfo;
 } {
-  const pages = getAllPages();
+  const pages = getOrderedPages();
   const currentPath = currentSlug.join("/");
   const currentIndex = pages.findIndex((p) => p.slug.join("/") === currentPath);
+  if (currentIndex === -1) return {};
 
   return {
     prev: currentIndex > 0 ? pages[currentIndex - 1] : undefined,

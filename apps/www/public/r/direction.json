@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction",
+  "title": "Direction",
+  "description": "Radix direction context for RTL-aware components.",
+  "dependencies": [
+    "@radix-ui/react-direction"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/direction.tsx",
+      "content": "\"use client\";\n\nexport { DirectionProvider, useDirection } from \"@radix-ui/react-direction\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

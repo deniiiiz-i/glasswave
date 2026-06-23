@@ -1,6 +1,6 @@
-import { cn } from "../../lib/cn";
-import { forwardRef } from "react";
 import { LoaderIcon } from "lucide-react";
+import { forwardRef } from "react";
+import { cn } from "../../lib/cn";
 
 export interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg" | "xl";
@@ -21,14 +21,14 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
         className={cn(
           "text-gray-400 dark:text-white/50",
           spinnerSizes[size],
-          className
+          className,
         )}
         {...props}
       >
         <LoaderIcon className={cn("h-full w-full animate-spin")} />
       </div>
     );
-  }
+  },
 );
 
 Spinner.displayName = "Spinner";

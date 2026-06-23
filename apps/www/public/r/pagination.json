@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "title": "Pagination",
+  "description": "Page navigation list with glass buttons.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://glasswave-ui.vercel.app/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/pagination.tsx",
+      "content": "\"use client\";\n\nimport { ChevronLeft, ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { buttonVariants } from \"@/components/ui/button\";\n\nexport function Pagination({\n  className,\n  ...props\n}: React.ComponentProps<\"nav\">) {\n  return (\n    <nav\n      role=\"navigation\"\n      aria-label=\"pagination\"\n      data-slot=\"pagination\"\n      className={cn(\"mx-auto flex w-full justify-center\", className)}\n      {...props}\n    />\n  );\n}\n\nexport function PaginationContent({\n  className,\n  ...props\n}: React.ComponentProps<\"ul\">) {\n  return (\n    <ul\n      data-slot=\"pagination-content\"\n      className={cn(\n        \"flex flex-row items-center gap-1 list-none p-0 m-0\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function PaginationItem({\n  className,\n  ...props\n}: React.ComponentProps<\"li\">) {\n  return (\n    <li\n      data-slot=\"pagination-item\"\n      className={cn(\"list-none\", className)}\n      {...props}\n    />\n  );\n}\n\nexport type PaginationLinkProps = React.ComponentProps<\"a\"> & {\n  isActive?: boolean;\n};\n\nexport const PaginationLink = forwardRef<\n  HTMLAnchorElement,\n  PaginationLinkProps\n>(({ className, isActive, ...props }, ref) => (\n  <a\n    ref={ref}\n    aria-current={isActive ? \"page\" : undefined}\n    data-slot=\"pagination-link\"\n    data-active={isActive}\n    className={cn(\n      buttonVariants({\n        variant: isActive ? \"default\" : \"glass\",\n        size: \"icon\",\n      }),\n      \"size-9 min-w-9 no-underline hover:no-underline\",\n      className,\n    )}\n    {...props}\n  />\n));\nPaginationLink.displayName = \"PaginationLink\";\n\nexport function PaginationPrevious({\n  className,\n  ...props\n}: React.ComponentProps<\"a\">) {\n  return (\n    <a\n      aria-label=\"Go to previous page\"\n      data-slot=\"pagination-previous\"\n      className={cn(\n        buttonVariants({ variant: \"glass\", size: \"md\" }),\n        \"inline-flex h-9 items-center gap-1 rounded-full px-3 sm:pl-2.5 no-underline hover:no-underline\",\n        className,\n      )}\n      {...props}\n    >\n      <ChevronLeft className=\"size-4 shrink-0\" />\n      <span className=\"hidden sm:inline\">Previous</span>\n    </a>\n  );\n}\n\nexport function PaginationNext({\n  className,\n  ...props\n}: React.ComponentProps<\"a\">) {\n  return (\n    <a\n      aria-label=\"Go to next page\"\n      data-slot=\"pagination-next\"\n      className={cn(\n        buttonVariants({ variant: \"glass\", size: \"md\" }),\n        \"inline-flex h-9 items-center gap-1 rounded-full px-3 sm:pr-2.5 no-underline hover:no-underline\",\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"hidden sm:inline\">Next</span>\n      <ChevronRight className=\"size-4 shrink-0\" />\n    </a>\n  );\n}\n\nexport function PaginationEllipsis({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      aria-hidden\n      data-slot=\"pagination-ellipsis\"\n      className={cn(\"flex size-9 items-center justify-center\", className)}\n      {...props}\n    >\n      <MoreHorizontal className=\"size-4 opacity-70\" />\n      <span className=\"sr-only\">More pages</span>\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

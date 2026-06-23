@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable",
+  "title": "Resizable",
+  "description": "Split panes with react-resizable-panels v4 (`Group` / `Panel` / `Separator`).",
+  "dependencies": [
+    "lucide-react",
+    "react-resizable-panels"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/resizable.tsx",
+      "content": "\"use client\";\n\nimport { GripVertical } from \"lucide-react\";\nimport { forwardRef } from \"react\";\nimport { Group, Panel, Separator } from \"react-resizable-panels\";\nimport { cn } from \"@/lib/utils\";\n\nexport const ResizablePanelGroup = ({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: React.ComponentProps<typeof Group> & {\n  orientation?: \"horizontal\" | \"vertical\";\n}) => (\n  <Group\n    orientation={orientation}\n    className={cn(\n      \"flex h-full w-full data-[orientation=vertical]:flex-col\",\n      className,\n    )}\n    {...props}\n  />\n);\n\nexport const ResizablePanel = Panel;\n\nexport const ResizableHandle = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<typeof Separator> & {\n    withHandle?: boolean;\n  }\n>(({ withHandle, className, ...props }, ref) => (\n  <Separator\n    elementRef={ref}\n    className={cn(\n      \"relative flex w-px items-center justify-center bg-black/10 dark:bg-white/15 outline-none transition-colors after:absolute after:inset-y-0 after:left-1/2 after:w-4 after:-translate-x-1/2 focus-visible:ring-2 focus-visible:ring-blue-500/40 data-[orientation=vertical]:h-px data-[orientation=vertical]:w-full\",\n      className,\n    )}\n    {...props}\n  >\n    {withHandle && (\n      <div className=\"z-10 flex h-7 w-4 items-center justify-center rounded-md border border-black/10 dark:border-white/15 bg-black/[0.04] dark:bg-white/[0.06] shadow-sm\">\n        <GripVertical className=\"size-3.5 text-current/50\" aria-hidden />\n      </div>\n    )}\n  </Separator>\n));\nResizableHandle.displayName = \"ResizableHandle\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

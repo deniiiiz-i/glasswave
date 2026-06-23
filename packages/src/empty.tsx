@@ -13,11 +13,17 @@ export function Empty({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-export function EmptyHeader({ className, ...props }: React.ComponentProps<"div">) {
+export function EmptyHeader({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="empty-header"
-      className={cn("flex max-w-sm flex-col items-center gap-2 text-center", className)}
+      className={cn(
+        "flex max-w-sm flex-col items-center gap-2 text-center",
+        className,
+      )}
       {...props}
     />
   );
@@ -34,8 +40,10 @@ export function EmptyMedia({
       data-variant={variant}
       className={cn(
         "flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0",
-        variant === "default" && "bg-black/[0.04] dark:bg-white/[0.06] rounded-2xl size-12 border border-black/[0.08] dark:border-white/10 [&_svg:not([class*='size-'])]:size-6",
-        variant === "icon" && "bg-transparent [&_svg:not([class*='size-'])]:size-10 text-current/50",
+        variant === "default" &&
+          "bg-black/[0.04] dark:bg-white/[0.06] rounded-2xl size-12 border border-black/[0.08] dark:border-white/10 [&_svg:not([class*='size-'])]:size-6",
+        variant === "icon" &&
+          "bg-transparent [&_svg:not([class*='size-'])]:size-10 text-current/50",
         className,
       )}
       {...props}
@@ -43,17 +51,26 @@ export function EmptyMedia({
   );
 }
 
-export function EmptyTitle({ className, ...props }: React.ComponentProps<"div">) {
+export function EmptyTitle({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="empty-title"
-      className={cn("text-lg font-semibold tracking-tight text-current", className)}
+      className={cn(
+        "text-lg font-semibold tracking-tight text-current",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
+export function EmptyDescription({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="empty-description"
@@ -66,11 +83,17 @@ export function EmptyDescription({ className, ...props }: React.ComponentProps<"
   );
 }
 
-export function EmptyContent({ className, ...props }: React.ComponentProps<"div">) {
+export function EmptyContent({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="empty-content"
-      className={cn("flex w-full max-w-sm min-w-0 flex-col items-center gap-4", className)}
+      className={cn(
+        "flex w-full max-w-sm min-w-0 flex-col items-center gap-4",
+        className,
+      )}
       {...props}
     />
   );

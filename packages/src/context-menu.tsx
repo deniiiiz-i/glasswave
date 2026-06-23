@@ -26,7 +26,12 @@ export const ContextMenuContent = forwardRef<
   <ContextMenuPrimitive.Portal>
     <ContextMenuPrimitive.Content
       ref={ref}
-      className={cn(glass, menuContentClass, "animate-in fade-in-0 zoom-in-95", className)}
+      className={cn(
+        glass,
+        menuContentClass,
+        "animate-in fade-in-0 zoom-in-95",
+        className,
+      )}
       {...props}
     />
   </ContextMenuPrimitive.Portal>
@@ -65,13 +70,18 @@ export const ContextMenuCheckboxItem = forwardRef<
     {children}
   </ContextMenuPrimitive.CheckboxItem>
 ));
-ContextMenuCheckboxItem.displayName = ContextMenuPrimitive.CheckboxItem.displayName;
+ContextMenuCheckboxItem.displayName =
+  ContextMenuPrimitive.CheckboxItem.displayName;
 
 export const ContextMenuRadioItem = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
-  <ContextMenuPrimitive.RadioItem ref={ref} className={cn(menuItemClass, "pl-8", className)} {...props}>
+  <ContextMenuPrimitive.RadioItem
+    ref={ref}
+    className={cn(menuItemClass, "pl-8", className)}
+    {...props}
+  >
     <span className="absolute left-2 flex size-4 items-center justify-center">
       <ContextMenuPrimitive.ItemIndicator>
         <Circle className="size-2 fill-current" />
@@ -100,11 +110,18 @@ export const ContextMenuSeparator = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <ContextMenuPrimitive.Separator ref={ref} className={cn(menuSeparatorClass, className)} {...props} />
+  <ContextMenuPrimitive.Separator
+    ref={ref}
+    className={cn(menuSeparatorClass, className)}
+    {...props}
+  />
 ));
 ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName;
 
-export const ContextMenuShortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
+export const ContextMenuShortcut = ({
+  className,
+  ...props
+}: React.ComponentProps<"span">) => (
   <span
     className={cn("ml-auto text-xs tracking-widest text-current/50", className)}
     {...props}
@@ -134,7 +151,12 @@ export const ContextMenuSubContent = forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.SubContent
     ref={ref}
-    className={cn(glass, menuContentClass, "animate-in fade-in-0 zoom-in-95", className)}
+    className={cn(
+      glass,
+      menuContentClass,
+      "animate-in fade-in-0 zoom-in-95",
+      className,
+    )}
     {...props}
   />
 ));

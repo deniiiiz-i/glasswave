@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "Navigation trail for the current page hierarchy.",
+  "dependencies": [
+    "@radix-ui/react-slot",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/breadcrumb.tsx",
+      "content": "\"use client\";\n\nimport { Slot } from \"@radix-ui/react-slot\";\nimport { ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Breadcrumb({ ...props }: React.ComponentProps<\"nav\">) {\n  return <nav aria-label=\"breadcrumb\" data-slot=\"breadcrumb\" {...props} />;\n}\n\nexport function BreadcrumbList({\n  className,\n  ...props\n}: React.ComponentProps<\"ol\">) {\n  return (\n    <ol\n      data-slot=\"breadcrumb-list\"\n      className={cn(\n        // Frosted glass bar — visible white fill + top highlight so it reads as\n        // glass on light backgrounds rather than flat grey.\n        \"relative flex w-fit flex-wrap items-center gap-1 break-words rounded-full border border-black/[0.06] bg-white/45 px-3.5 py-1.5 text-sm text-current/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7),0_6px_20px_rgba(0,0,0,0.06)] backdrop-blur-xl dark:border-white/12 dark:bg-white/[0.07] dark:text-current/75 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.3)]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function BreadcrumbItem({\n  className,\n  ...props\n}: React.ComponentProps<\"li\">) {\n  return (\n    <li\n      data-slot=\"breadcrumb-item\"\n      className={cn(\"inline-flex items-center gap-1.5\", className)}\n      {...props}\n    />\n  );\n}\n\nexport const BreadcrumbLink = forwardRef<\n  HTMLAnchorElement,\n  React.ComponentProps<\"a\"> & { asChild?: boolean }\n>(({ asChild, className, ...props }, ref) => {\n  const Comp = asChild ? Slot : \"a\";\n  return (\n    <Comp\n      ref={ref}\n      data-slot=\"breadcrumb-link\"\n      className={cn(\n        \"rounded-full px-2 py-0.5 transition-colors hover:bg-black/[0.06] hover:text-current dark:hover:bg-white/10\",\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nBreadcrumbLink.displayName = \"BreadcrumbLink\";\n\nexport function BreadcrumbPage({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"breadcrumb-page\"\n      role=\"link\"\n      aria-disabled=\"true\"\n      aria-current=\"page\"\n      className={cn(\n        \"rounded-full border border-black/[0.05] bg-white/70 px-2 py-0.5 font-medium text-current shadow-sm dark:border-white/10 dark:bg-white/[0.14]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function BreadcrumbSeparator({\n  children,\n  className,\n  ...props\n}: React.ComponentProps<\"li\">) {\n  return (\n    <li\n      data-slot=\"breadcrumb-separator\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn(\"[&>svg]:size-3.5 text-current/40\", className)}\n      {...props}\n    >\n      {children ?? <ChevronRight />}\n    </li>\n  );\n}\n\nexport function BreadcrumbEllipsis({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"breadcrumb-ellipsis\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn(\"flex size-9 items-center justify-center\", className)}\n      {...props}\n    >\n      <MoreHorizontal className=\"size-4\" />\n      <span className=\"sr-only\">More</span>\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

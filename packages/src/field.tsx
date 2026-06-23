@@ -4,7 +4,10 @@ import { forwardRef } from "react";
 import { cn } from "../../lib/cn";
 import { Label } from "./label";
 
-export function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
+export function FieldGroup({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="field-group"
@@ -28,11 +31,19 @@ export const FieldLabel = forwardRef<
   React.ElementRef<typeof Label>,
   React.ComponentPropsWithoutRef<typeof Label>
 >(({ className, ...props }, ref) => (
-  <Label ref={ref} data-slot="field-label" className={cn(className)} {...props} />
+  <Label
+    ref={ref}
+    data-slot="field-label"
+    className={cn(className)}
+    {...props}
+  />
 ));
 FieldLabel.displayName = "FieldLabel";
 
-export function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
+export function FieldDescription({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="field-description"

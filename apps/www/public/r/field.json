@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "\"Form field primitives: label, hint, and error.\"",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://glasswave-ui.vercel.app/r/label.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/field.tsx",
+      "content": "\"use client\";\n\nimport { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { Label } from \"@/components/ui/label\";\n\nexport function FieldGroup({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"field-group\"\n      className={cn(\"flex flex-col gap-6\", className)}\n      {...props}\n    />\n  );\n}\n\nexport function Field({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"field\"\n      className={cn(\"flex flex-col gap-2\", className)}\n      {...props}\n    />\n  );\n}\n\nexport const FieldLabel = forwardRef<\n  React.ElementRef<typeof Label>,\n  React.ComponentPropsWithoutRef<typeof Label>\n>(({ className, ...props }, ref) => (\n  <Label\n    ref={ref}\n    data-slot=\"field-label\"\n    className={cn(className)}\n    {...props}\n  />\n));\nFieldLabel.displayName = \"FieldLabel\";\n\nexport function FieldDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"field-description\"\n      className={cn(\"text-sm text-current/65 leading-relaxed\", className)}\n      {...props}\n    />\n  );\n}\n\nexport function FieldError({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"field-error\"\n      role=\"alert\"\n      className={cn(\"text-sm font-medium text-[#FF3B30]\", className)}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

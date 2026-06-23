@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio Group",
+  "description": "Radio group button for single selection.",
+  "dependencies": [
+    "@radix-ui/react-radio-group"
+  ],
+  "registryDependencies": [
+    "https://glasswave-ui.vercel.app/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/radio-group.tsx",
+      "content": "\"use client\";\n\nimport * as RadixRadio from \"@radix-ui/react-radio-group\";\nimport { type ComponentPropsWithoutRef, forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { focusRing, glass } from \"@/lib/glass\";\n\nexport const RadioGroup = RadixRadio.Root;\n\nexport const RadioGroupItem = forwardRef<\n  HTMLButtonElement,\n  ComponentPropsWithoutRef<typeof RadixRadio.Item>\n>(({ className, ...props }, ref) => (\n  <RadixRadio.Item\n    ref={ref as any}\n    className={cn(\n      glass,\n      focusRing,\n      \"w-5 h-5 rounded-full flex items-center justify-center data-[state=checked]:bg-[#007AFF] data-[state=checked]:border-[#007AFF]\",\n      className,\n    )}\n    {...props}\n  >\n    <RadixRadio.Indicator className=\"w-2 h-2 bg-white rounded-full\" />\n  </RadixRadio.Item>\n));\nRadioGroupItem.displayName = \"RadioGroupItem\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

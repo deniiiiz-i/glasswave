@@ -4,7 +4,7 @@ import * as RadixSelect from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { forwardRef } from "react";
 import { cn } from "../../lib/cn";
-import { glass, focusRing } from "../../lib/glass";
+import { focusRing, glass } from "../../lib/glass";
 
 export const Select = RadixSelect.Root;
 
@@ -133,7 +133,9 @@ export const SelectItem = forwardRef<
     )}
     {...props}
   >
-    <RadixSelect.ItemText className="flex-1 truncate">{children}</RadixSelect.ItemText>
+    <RadixSelect.ItemText className="flex-1 truncate">
+      {children}
+    </RadixSelect.ItemText>
     <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center">
       <RadixSelect.ItemIndicator>
         <Check className="size-4 opacity-90" strokeWidth={2.5} aria-hidden />

@@ -1,6 +1,9 @@
 import { cn } from "../../lib/cn";
 
-export function TypographyH1({ className, ...props }: React.ComponentProps<"h1">) {
+export function TypographyH1({
+  className,
+  ...props
+}: React.ComponentProps<"h1">) {
   return (
     <h1
       className={cn(
@@ -12,7 +15,10 @@ export function TypographyH1({ className, ...props }: React.ComponentProps<"h1">
   );
 }
 
-export function TypographyH2({ className, ...props }: React.ComponentProps<"h2">) {
+export function TypographyH2({
+  className,
+  ...props
+}: React.ComponentProps<"h2">) {
   return (
     <h2
       className={cn(
@@ -24,68 +30,131 @@ export function TypographyH2({ className, ...props }: React.ComponentProps<"h2">
   );
 }
 
-export function TypographyH3({ className, ...props }: React.ComponentProps<"h3">) {
+export function TypographyH3({
+  className,
+  ...props
+}: React.ComponentProps<"h3">) {
   return (
     <h3
-      className={cn("scroll-m-20 text-2xl font-semibold tracking-tight text-current", className)}
+      className={cn(
+        "scroll-m-20 text-2xl font-semibold tracking-tight text-current",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export function TypographyH4({ className, ...props }: React.ComponentProps<"h4">) {
+export function TypographyH4({
+  className,
+  ...props
+}: React.ComponentProps<"h4">) {
   return (
     <h4
-      className={cn("scroll-m-20 text-xl font-semibold tracking-tight text-current", className)}
+      className={cn(
+        "scroll-m-20 text-xl font-semibold tracking-tight text-current",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export function TypographyP({ className, ...props }: React.ComponentProps<"p">) {
+export function TypographyP({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
-    <p className={cn("leading-7 text-current/90 [&:not(:first-child)]:mt-4", className)} {...props} />
+    <p
+      className={cn(
+        "leading-7 text-current/90 [&:not(:first-child)]:mt-4",
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
-export function TypographyLead({ className, ...props }: React.ComponentProps<"p">) {
+export function TypographyLead({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
-    <p className={cn("text-xl text-current/80 leading-relaxed", className)} {...props} />
+    <p
+      className={cn("text-xl text-current/80 leading-relaxed", className)}
+      {...props}
+    />
   );
 }
 
-export function TypographyLarge({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("text-lg font-semibold text-current", className)} {...props} />;
-}
-
-export function TypographySmall({ className, ...props }: React.ComponentProps<"small">) {
+export function TypographyLarge({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <small className={cn("text-sm font-medium leading-none text-current/80", className)} {...props} />
+    <div
+      className={cn("text-lg font-semibold text-current", className)}
+      {...props}
+    />
   );
 }
 
-export function TypographyMuted({ className, ...props }: React.ComponentProps<"p">) {
+export function TypographySmall({
+  className,
+  ...props
+}: React.ComponentProps<"small">) {
   return (
-    <p className={cn("text-sm text-current/60", className)} {...props} />
+    <small
+      className={cn(
+        "text-sm font-medium leading-none text-current/80",
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
-export function TypographyBlockquote({ className, ...props }: React.ComponentProps<"blockquote">) {
+export function TypographyMuted({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
+  return <p className={cn("text-sm text-current/60", className)} {...props} />;
+}
+
+export function TypographyBlockquote({
+  className,
+  ...props
+}: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
-      className={cn("mt-6 border-l-2 border-white/20 pl-6 italic text-current/85", className)}
+      className={cn(
+        "mt-6 border-l-2 border-white/20 pl-6 italic text-current/85",
+        className,
+      )}
       {...props}
     />
   );
 }
 
-export function TypographyList({ className, ...props }: React.ComponentProps<"ul">) {
+export function TypographyList({
+  className,
+  ...props
+}: React.ComponentProps<"ul">) {
   return (
-    <ul className={cn("my-6 ml-6 list-disc text-current/90 [&>li]:mt-2", className)} {...props} />
+    <ul
+      className={cn(
+        "my-6 ml-6 list-disc text-current/90 [&>li]:mt-2",
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
-export function TypographyInlineCode({ className, ...props }: React.ComponentProps<"code">) {
+export function TypographyInlineCode({
+  className,
+  ...props
+}: React.ComponentProps<"code">) {
   return (
     <code
       className={cn(

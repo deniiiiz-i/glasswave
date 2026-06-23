@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item",
+  "title": "Item",
+  "description": "List row with optional glass variant and media slot.",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "registryDependencies": [
+    "https://glasswave-ui.vercel.app/r/glass.json"
+  ],
+  "files": [
+    {
+      "path": "registry/glasswave/ui/item.tsx",
+      "content": "\"use client\";\n\nimport { Slot } from \"@radix-ui/react-slot\";\nimport { forwardRef } from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { glass } from \"@/lib/glass\";\n\nexport const Item = forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> & {\n    asChild?: boolean;\n    variant?: \"default\" | \"glass\";\n  }\n>(({ asChild, className, variant = \"default\", ...props }, ref) => {\n  const Comp = asChild ? Slot : \"div\";\n  return (\n    <Comp\n      ref={ref}\n      data-slot=\"item\"\n      data-variant={variant}\n      className={cn(\n        \"flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm transition-colors\",\n        variant === \"default\" &&\n          \"hover:bg-black/[0.04] dark:hover:bg-white/[0.08] dark:hover:bg-white/[0.08]\",\n        variant === \"glass\" && glass,\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nItem.displayName = \"Item\";\n\nexport function ItemMedia({\n  className,\n  variant = \"icon\",\n  ...props\n}: React.ComponentProps<\"div\"> & { variant?: \"icon\" | \"image\" }) {\n  return (\n    <div\n      data-slot=\"item-media\"\n      data-variant={variant}\n      className={cn(\n        \"flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-black/[0.08] dark:border-white/10 bg-black/[0.04] dark:bg-white/[0.05] [&_svg]:size-5\",\n        variant === \"image\" && \"border-0 bg-transparent p-0\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function ItemContent({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"item-content\"\n      className={cn(\"flex min-w-0 flex-1 flex-col gap-0.5\", className)}\n      {...props}\n    />\n  );\n}\n\nexport function ItemTitle({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"item-title\"\n      className={cn(\n        \"truncate font-medium leading-tight text-current\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function ItemDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"item-description\"\n      className={cn(\"truncate text-xs text-current/60 leading-snug\", className)}\n      {...props}\n    />\n  );\n}\n\nexport function ItemActions({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"item-actions\"\n      className={cn(\"flex shrink-0 items-center gap-1\", className)}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

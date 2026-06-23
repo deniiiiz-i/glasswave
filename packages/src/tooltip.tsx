@@ -12,7 +12,12 @@ interface TooltipProps {
   side?: "top" | "right" | "bottom" | "left";
 }
 
-export function Tooltip({ content, children, className = "", side = "top" }: TooltipProps) {
+export function Tooltip({
+  content,
+  children,
+  className = "",
+  side = "top",
+}: TooltipProps) {
   return (
     <RadixTooltip.Provider delayDuration={150}>
       <RadixTooltip.Root>
@@ -32,7 +37,11 @@ export function Tooltip({ content, children, className = "", side = "top" }: Too
             )}
           >
             {content}
-            <RadixTooltip.Arrow className="fill-white dark:fill-zinc-950" width={11} height={6} />
+            <RadixTooltip.Arrow
+              className="fill-white dark:fill-zinc-950"
+              width={11}
+              height={6}
+            />
           </RadixTooltip.Content>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>
