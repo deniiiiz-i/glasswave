@@ -45,11 +45,11 @@ export function DialogPreview() {
           </div>
           <DialogFooter className="flex gap-4 sm:justify-between w-full">
             <DialogClose asChild>
-              <Button variant="glass" className="flex-1">
+              <Button variant="glass" className="sm:flex-1">
                 Cancel
               </Button>
             </DialogClose>
-            <Button type="submit" className="flex-1">
+            <Button type="submit" className="sm:flex-1">
               Save changes
             </Button>
           </DialogFooter>
