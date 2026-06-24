@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 interface CodeBlockProps {
   code: string;
@@ -9,12 +9,15 @@ interface CodeBlockProps {
   scroll?: boolean;
   /** IDE-style line numbers in a left gutter (default on). */
   showLineNumbers?: boolean;
+  /** Controls rendered in a header bar inside the block (e.g. a package-manager selector). */
+  toolbar?: ReactNode;
 }
 
 export function CodeBlock({
   code,
   scroll = false,
   showLineNumbers = true,
+  toolbar,
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
@@ -30,10 +33,27 @@ export function CodeBlock({
 
   const lines = code.replace(/\n+$/, "").split("\n");
 
+  const copyButton = (className: string) => (
+    <button
+      type="button"
+      onClick={copy}
+      aria-label={copied ? "Copied" : "Copy to clipboard"}
+      className={`inline-flex size-7 items-center justify-center rounded-lg border border-slate-200 bg-white/70 text-slate-500 transition-colors hover:text-slate-900 dark:border-white/12 dark:bg-white/5 dark:text-white/60 dark:hover:text-white ${className}`}
+    >
+      {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+    </button>
+  );
+
   return (
-    <div className="group relative">
+    <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-white/10 dark:bg-[#060608]">
+      {toolbar && (
+        <div className="flex items-center justify-between gap-3 border-b border-slate-200 py-2 pr-2.5 pl-4 dark:border-white/10">
+          {toolbar}
+          {copyButton("")}
+        </div>
+      )}
       <pre
-        className={`m-0 overflow-x-auto rounded-xl border border-slate-200 bg-slate-100 py-4 font-mono text-[13px] leading-relaxed text-slate-800 dark:border-white/10 dark:bg-[#060608] dark:text-white/90 ${
+        className={`m-0 overflow-x-auto py-4 font-mono text-[13px] leading-relaxed text-slate-800 dark:text-white/90 ${
           scroll ? "max-h-[420px] overflow-y-auto" : ""
         }`}
       >
@@ -55,18 +75,7 @@ export function CodeBlock({
           ))}
         </code>
       </pre>
-      <button
-        type="button"
-        onClick={copy}
-        aria-label={copied ? "Copied" : "Copy to clipboard"}
-        className="absolute top-2.5 right-2.5 inline-flex size-7 items-center justify-center rounded-lg border border-slate-200 bg-white/70 text-slate-500 transition-colors hover:text-slate-900 dark:border-white/12 dark:bg-white/5 dark:text-white/60 dark:hover:text-white"
-      >
-        {copied ? (
-          <Check className="size-3.5" />
-        ) : (
-          <Copy className="size-3.5" />
-        )}
-      </button>
+      {!toolbar && copyButton("absolute top-2.5 right-2.5")}
     </div>
   );
 }

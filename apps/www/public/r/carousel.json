@@ -8,7 +8,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/button.json"
+    "@glasswave/button"
   ],
   "files": [
     {

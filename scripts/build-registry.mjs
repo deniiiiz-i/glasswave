@@ -95,7 +95,9 @@ function descriptionFor(name) {
   return m ? m[1].trim() : undefined;
 }
 
-const registryUrl = (name) => `${REGISTRY_BASE}/r/${name}.json`;
+// Cross-component deps are referenced by the `@glasswave` namespace so they
+// resolve through whatever base the consumer configured in components.json.
+const namespacedDep = (name) => `@glasswave/${name}`;
 
 // Glass CSS shipped with the `glass` lib item (the `.glass-edge`/`.glass-noise`
 // surfaces every glass component references via class name).
@@ -172,7 +174,7 @@ for (const name of COMPONENTS) {
     title: titleCase(name),
     description: descriptionFor(name) ?? `${titleCase(name)} component.`,
     dependencies: [...dependencies].sort(),
-    registryDependencies: [...registryDeps].sort().map(registryUrl),
+    registryDependencies: [...registryDeps].sort().map(namespacedDep),
     files: [{ path: rel, type: "registry:ui" }],
   });
 }

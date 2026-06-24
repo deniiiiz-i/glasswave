@@ -7,8 +7,8 @@
     "@radix-ui/react-dialog"
   ],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/button.json",
-    "https://glasswave-ui.vercel.app/r/glass.json"
+    "@glasswave/button",
+    "@glasswave/glass"
   ],
   "files": [
     {

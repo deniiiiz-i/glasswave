@@ -8,7 +8,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/toggle.json"
+    "@glasswave/toggle"
   ],
   "files": [
     {

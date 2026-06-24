@@ -8,9 +8,9 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/button.json",
-    "https://glasswave-ui.vercel.app/r/calendar.json",
-    "https://glasswave-ui.vercel.app/r/popover.json"
+    "@glasswave/button",
+    "@glasswave/calendar",
+    "@glasswave/popover"
   ],
   "files": [
     {
