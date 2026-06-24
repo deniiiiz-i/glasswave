@@ -17,11 +17,11 @@ export function BreadcrumbPreview() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink href="#">Home</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+            <BreadcrumbLink href="#">Docs</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

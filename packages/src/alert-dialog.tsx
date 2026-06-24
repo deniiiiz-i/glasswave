@@ -84,7 +84,7 @@ export const AlertDialogCancel = ({
   <Dialog.Close
     className={cn(
       buttonVariants({ variant: "glass" }),
-      "flex-1 cursor-pointer",
+      "sm:flex-1 cursor-pointer",
       className,
     )}
     {...props}
@@ -101,7 +101,7 @@ export const AlertDialogAction = ({
   <button
     className={cn(
       buttonVariants({ variant }),
-      "flex-1 cursor-pointer",
+      "sm:flex-1 cursor-pointer",
       className,
     )}
     {...props}
