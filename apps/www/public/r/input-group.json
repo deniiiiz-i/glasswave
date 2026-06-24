@@ -5,7 +5,7 @@
   "description": "Text input with start/end addons (URL prefix, currency, etc.).",
   "dependencies": [],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/glass.json"
+    "@glasswave/glass"
   ],
   "files": [
     {

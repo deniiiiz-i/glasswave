@@ -5,7 +5,7 @@
   "description": "\"Form field primitives: label, hint, and error.\"",
   "dependencies": [],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/label.json"
+    "@glasswave/label"
   ],
   "files": [
     {

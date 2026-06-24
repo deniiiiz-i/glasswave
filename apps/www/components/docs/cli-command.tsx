@@ -1,6 +1,5 @@
 "use client";
 
-import { siteConfig } from "@/lib/site-config";
 import { CodeBlock } from "./code-block";
 import { PackageManagerSelector } from "./installation-tabs";
 import { type PackageManager, usePackageManager } from "./use-package-manager";
@@ -13,22 +12,22 @@ const RUNNER: Record<PackageManager, string> = {
   bun: "bunx --bun",
 };
 
-const base = siteConfig.registryUrl.replace(/\/$/, "");
-
 /**
  * A shadcn CLI command with the same package-manager selector used on
- * component pages. Pass `add` to build an `add <registry-url>` command for a
- * component, or `args` for any other subcommand (e.g. `init`).
+ * component pages. Pass `add` for an `add @glasswave/<name>` command, or `args`
+ * for any other subcommand (e.g. `init`).
  */
 export function CliCommand({ args, add }: { args?: string; add?: string }) {
   const [pm, setPm] = usePackageManager();
 
-  const subcommand = add ? `add ${base}/r/${add}.json` : args;
+  const subcommand = add ? `add @glasswave/${add}` : args;
 
   return (
-    <div className="my-4 space-y-3">
-      <PackageManagerSelector pm={pm} onChange={setPm} />
-      <CodeBlock code={`${RUNNER[pm]} shadcn@latest ${subcommand}`} />
+    <div className="my-4">
+      <CodeBlock
+        code={`${RUNNER[pm]} shadcn@latest ${subcommand}`}
+        toolbar={<PackageManagerSelector pm={pm} onChange={setPm} />}
+      />
     </div>
   );
 }

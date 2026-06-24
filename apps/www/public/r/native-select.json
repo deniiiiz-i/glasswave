@@ -5,7 +5,7 @@
   "description": "Styled native `<select>` with glass appearance.",
   "dependencies": [],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/glass.json"
+    "@glasswave/glass"
   ],
   "files": [
     {

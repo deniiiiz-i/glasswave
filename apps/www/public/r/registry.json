@@ -64,7 +64,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -82,7 +82,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -100,8 +100,8 @@
         "@radix-ui/react-dialog"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json",
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/button",
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -135,7 +135,7 @@
         "@radix-ui/react-avatar"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -187,7 +187,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -236,7 +236,7 @@
       "description": "Container for displaying structured information.",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -255,7 +255,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json"
+        "@glasswave/button"
       ],
       "files": [
         {
@@ -273,7 +273,7 @@
         "recharts"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -291,7 +291,7 @@
         "@radix-ui/react-checkbox"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -325,9 +325,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json",
-        "https://glasswave-ui.vercel.app/r/command.json",
-        "https://glasswave-ui.vercel.app/r/popover.json"
+        "@glasswave/button",
+        "@glasswave/command",
+        "@glasswave/popover"
       ],
       "files": [
         {
@@ -363,8 +363,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json",
-        "https://glasswave-ui.vercel.app/r/menu-classes.json"
+        "@glasswave/glass",
+        "@glasswave/menu-classes"
       ],
       "files": [
         {
@@ -383,8 +383,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json",
-        "https://glasswave-ui.vercel.app/r/table.json"
+        "@glasswave/button",
+        "@glasswave/table"
       ],
       "files": [
         {
@@ -403,9 +403,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json",
-        "https://glasswave-ui.vercel.app/r/calendar.json",
-        "https://glasswave-ui.vercel.app/r/popover.json"
+        "@glasswave/button",
+        "@glasswave/calendar",
+        "@glasswave/popover"
       ],
       "files": [
         {
@@ -424,7 +424,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -474,8 +474,8 @@
         "@radix-ui/react-dropdown-menu"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json",
-        "https://glasswave-ui.vercel.app/r/menu-classes.json"
+        "@glasswave/glass",
+        "@glasswave/menu-classes"
       ],
       "files": [
         {
@@ -505,7 +505,7 @@
       "description": "\"Form field primitives: label, hint, and error.\"",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/label.json"
+        "@glasswave/label"
       ],
       "files": [
         {
@@ -523,7 +523,7 @@
         "@radix-ui/react-hover-card"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -539,7 +539,7 @@
       "description": "Text input field.",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -555,7 +555,7 @@
       "description": "Text input with start/end addons (URL prefix, currency, etc.).",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -574,7 +574,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -592,7 +592,7 @@
         "@radix-ui/react-slot"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -642,8 +642,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json",
-        "https://glasswave-ui.vercel.app/r/menu-classes.json"
+        "@glasswave/glass",
+        "@glasswave/menu-classes"
       ],
       "files": [
         {
@@ -659,7 +659,7 @@
       "description": "Styled native `<select>` with glass appearance.",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -678,7 +678,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -696,7 +696,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json"
+        "@glasswave/button"
       ],
       "files": [
         {
@@ -714,7 +714,7 @@
         "@radix-ui/react-popover"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -748,7 +748,7 @@
         "@radix-ui/react-radio-group"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -800,7 +800,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -836,7 +836,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json"
+        "@glasswave/button"
       ],
       "files": [
         {
@@ -854,8 +854,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/button.json",
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/button",
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -887,7 +887,7 @@
         "@radix-ui/react-slider"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -921,7 +921,7 @@
         "@radix-ui/react-switch"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -953,7 +953,7 @@
         "@radix-ui/react-tabs"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -969,7 +969,7 @@
       "description": "Multiline text input field.",
       "dependencies": [],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -987,7 +987,7 @@
         "@radix-ui/react-toast"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -1006,7 +1006,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {
@@ -1025,7 +1025,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/toggle.json"
+        "@glasswave/toggle"
       ],
       "files": [
         {
@@ -1043,7 +1043,7 @@
         "@radix-ui/react-tooltip"
       ],
       "registryDependencies": [
-        "https://glasswave-ui.vercel.app/r/glass.json"
+        "@glasswave/glass"
       ],
       "files": [
         {

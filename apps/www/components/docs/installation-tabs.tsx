@@ -9,8 +9,8 @@ import {
 } from "./use-package-manager";
 
 interface InstallationTabsProps {
-  /** Full registry URL, e.g. https://…/r/button.json */
-  url: string;
+  /** Namespaced registry ref, e.g. @glasswave/button */
+  addRef: string;
   /** npm dependencies the component needs. */
   dependencies: string[];
   /** Transformed component source (with `@/` aliases) to paste manually. */
@@ -19,12 +19,12 @@ interface InstallationTabsProps {
   target: string;
 }
 
-const addCommand = (pm: PackageManager, url: string) =>
+const addCommand = (pm: PackageManager, addRef: string) =>
   ({
-    pnpm: `pnpm dlx shadcn@latest add ${url}`,
-    npm: `npx shadcn@latest add ${url}`,
-    yarn: `yarn dlx shadcn@latest add ${url}`,
-    bun: `bunx --bun shadcn@latest add ${url}`,
+    pnpm: `pnpm dlx shadcn@latest add ${addRef}`,
+    npm: `npx shadcn@latest add ${addRef}`,
+    yarn: `yarn dlx shadcn@latest add ${addRef}`,
+    bun: `bunx --bun shadcn@latest add ${addRef}`,
   })[pm];
 
 export function PackageManagerSelector({
@@ -35,14 +35,14 @@ export function PackageManagerSelector({
   onChange: (pm: PackageManager) => void;
 }) {
   return (
-    <div className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-100 p-1 dark:border-white/10 dark:bg-white/5">
+    <div className="inline-flex items-center gap-4">
       {PACKAGE_MANAGERS.map((value) => (
         <button
           key={value}
           type="button"
           onClick={() => onChange(value)}
           data-active={pm === value}
-          className="rounded-md px-2.5 py-1 text-xs font-medium text-slate-500 transition-colors data-[active=true]:bg-white data-[active=true]:text-slate-900 data-[active=true]:shadow-sm dark:text-white/55 dark:data-[active=true]:bg-white/15 dark:data-[active=true]:text-white"
+          className="text-xs font-medium text-slate-400 transition-colors hover:text-slate-600 data-[active=true]:text-slate-900 dark:text-white/40 dark:hover:text-white/70 dark:data-[active=true]:text-white"
         >
           {value}
         </button>
@@ -52,7 +52,7 @@ export function PackageManagerSelector({
 }
 
 export function InstallationTabs({
-  url,
+  addRef,
   dependencies,
   source,
   target,
@@ -66,9 +66,11 @@ export function InstallationTabs({
         <TabsTrigger value="manual">Manual</TabsTrigger>
       </TabsList>
 
-      <TabsContent value="command" className="space-y-3">
-        <PackageManagerSelector pm={pm} onChange={setPm} />
-        <CodeBlock code={addCommand(pm, url)} />
+      <TabsContent value="command">
+        <CodeBlock
+          code={addCommand(pm, addRef)}
+          toolbar={<PackageManagerSelector pm={pm} onChange={setPm} />}
+        />
       </TabsContent>
 
       <TabsContent value="manual" className="space-y-3">

@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { siteConfig } from "@/lib/site-config";
 import { InstallationTabs } from "./installation-tabs";
 
 interface RegistryItem {
@@ -31,10 +30,9 @@ export function Installation({ name }: { name: string }) {
   const primary = item.files?.[0];
   if (!primary) return null;
 
-  const base = siteConfig.registryUrl.replace(/\/$/, "");
   return (
     <InstallationTabs
-      url={`${base}/r/${name}.json`}
+      addRef={`@glasswave/${name}`}
       dependencies={item.dependencies ?? []}
       source={primary.content}
       target={targetFor(primary)}

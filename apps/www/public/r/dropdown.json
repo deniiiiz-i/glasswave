@@ -7,8 +7,8 @@
     "@radix-ui/react-dropdown-menu"
   ],
   "registryDependencies": [
-    "https://glasswave-ui.vercel.app/r/glass.json",
-    "https://glasswave-ui.vercel.app/r/menu-classes.json"
+    "@glasswave/glass",
+    "@glasswave/menu-classes"
   ],
   "files": [
     {
