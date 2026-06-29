@@ -40,8 +40,12 @@ import { PaginationPreview } from "@/components/previews/pagination-preview";
 </Pagination>
 ```
 
-## Props
+## API Reference
 
-`PaginationLink` extends `<a>` with `isActive` to highlight the current page (uses primary button variant).
+### PaginationLink
 
-`PaginationPrevious` / `PaginationNext` render full anchor elements inside `PaginationItem`; pass `href` or `onClick` as needed.
+| Prop       | Type      | Default |
+| ---------- | --------- | ------- |
+| `isActive` | `boolean` | `false` |
+
+The other parts render their semantic element and accept its native attributes plus `className`.

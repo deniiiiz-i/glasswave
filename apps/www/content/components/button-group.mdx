@@ -41,22 +41,13 @@ can be grouped. Keep one variant per group for an even seam.
 </ButtonGroup>
 ```
 
-### Vertical
+## API Reference
 
-```tsx
-<ButtonGroup orientation="vertical">
-  <Button variant="glass">Top</Button>
-  <Button variant="glass">Middle</Button>
-  <Button variant="glass">Bottom</Button>
-</ButtonGroup>
-```
+### ButtonGroup
 
-## Props
+| Prop          | Type                         | Default        |
+| ------------- | ---------------------------- | -------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `className`   | `string`                     | —              |
 
-`ButtonGroup` extends a `div` with `role="group"`.
-
-| Prop | Type | Default |
-|------|------|---------|
-| `orientation` | `"horizontal"` \| `"vertical"` | `"horizontal"` |
-
-Vertical stacks collapse double borders between siblings.
+Accepts all standard `<div>` attributes.

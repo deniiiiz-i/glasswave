@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import path from "path";
+import remarkGfm from "remark-gfm";
 import { getMDXComponents } from "@/components/docs/mdx-components";
 import { PreviewSourceProvider } from "@/components/preview-source-context";
 import * as previews from "@/components/previews";
@@ -168,7 +169,11 @@ export default async function DocPage({
       {data.description && (
         <p className="text-lg text-gray-400 mb-8">{data.description}</p>
       )}
-      <MDXRemote source={content} components={components} />
+      <MDXRemote
+        source={content}
+        components={components}
+        options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+      />
 
       {(prev || next) && (
         <nav className="mt-14 grid grid-cols-2 gap-4 border-t border-slate-200 pt-8 dark:border-white/10">

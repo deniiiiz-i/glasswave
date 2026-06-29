@@ -29,11 +29,12 @@ import {
 </InputGroup>
 ```
 
-## Parts
+## API Reference
 
-| Part | Notes |
-|------|--------|
-| `InputGroup` | Glass field surface; flex row that holds the input and addons |
-| `InputGroupAddon` | `align`: `"inline-start"` \| `"inline-end"`; sits inline next to the input |
-| `InputGroupInput` | Transparent borderless input that fills the group |
-| `InputGroupText` | Muted label inside addon |
+### InputGroupAddon
+
+| Prop    | Type                             | Default          |
+| ------- | -------------------------------- | ---------------- |
+| `align` | `"inline-start" \| "inline-end"` | `"inline-start"` |
+
+The other parts render their native element and accept its attributes plus `className`.

@@ -24,13 +24,12 @@ import {
 } from "glasswave";
 ```
 
-## Parts
+## API Reference
 
-| Part | Role |
-|------|------|
-| `Empty` | Dashed bordered container |
-| `EmptyHeader` | Stacks title + description |
-| `EmptyMedia` | `variant`: `"default"` (boxed icon) or `"icon"` (plain) |
-| `EmptyTitle` | Heading |
-| `EmptyDescription` | Supporting text |
-| `EmptyContent` | CTAs row |
+### EmptyMedia
+
+| Prop      | Type                  | Default     |
+| --------- | --------------------- | ----------- |
+| `variant` | `"default" \| "icon"` | `"default"` |
+
+The other parts render a `<div>` and accept its native attributes plus `className`.

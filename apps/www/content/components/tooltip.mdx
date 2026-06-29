@@ -23,32 +23,12 @@ import { Tooltip } from 'glasswave';
 </Tooltip>
 ```
 
-## Position
+## API Reference
 
-Use the `side` prop to control where the tooltip appears relative to the trigger element.
+### Tooltip
 
-```tsx
-<Tooltip content="Tooltip text" side="top">
-  <span>Hover me</span>
-</Tooltip>
-```
-
-```tsx
-<Tooltip content="Tooltip text" side="bottom">
-  <span>Hover me</span>
-</Tooltip>
-```
-
-```tsx
-<Tooltip content="Tooltip text" side="left">
-  <span>Hover me</span>
-</Tooltip>
-```
-
-```tsx
-<Tooltip content="Tooltip text" side="right">
-  <span>Hover me</span>
-</Tooltip>
-```
-
-Available values: `"top"` | `"right"` | `"bottom"` | `"left"`
+| Prop      | Type                                     | Default |
+| --------- | ---------------------------------------- | ------- |
+| `content` | `string`                                 | —       |
+| `children`| `ReactNode`                              | —       |
+| `side`    | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |

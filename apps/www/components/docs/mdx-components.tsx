@@ -86,6 +86,32 @@ export function getMDXComponents(): MDXComponents {
       </blockquote>
     ),
     hr: () => <Separator className="my-8 opacity-20" />,
+    table: ({ children }: ComponentPropsWithoutRef<"table">) => (
+      <div className="my-6 w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/10">
+        <table className="w-full border-collapse text-sm">{children}</table>
+      </div>
+    ),
+    thead: ({ children }: ComponentPropsWithoutRef<"thead">) => (
+      <thead className="bg-slate-50 dark:bg-white/[0.03]">{children}</thead>
+    ),
+    tbody: ({ children }: ComponentPropsWithoutRef<"tbody">) => (
+      <tbody>{children}</tbody>
+    ),
+    tr: ({ children }: ComponentPropsWithoutRef<"tr">) => (
+      <tr className="border-b border-slate-200 last:border-0 dark:border-white/10">
+        {children}
+      </tr>
+    ),
+    th: ({ children }: ComponentPropsWithoutRef<"th">) => (
+      <th className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-white/50">
+        {children}
+      </th>
+    ),
+    td: ({ children }: ComponentPropsWithoutRef<"td">) => (
+      <td className="px-4 py-2.5 align-top text-slate-600 dark:text-white/70">
+        {children}
+      </td>
+    ),
     pre: ({ children }: ComponentPropsWithoutRef<"pre">) => (
       <div className="mb-4">
         <CodeBlock code={codeText(children).replace(/\n$/, "")} />

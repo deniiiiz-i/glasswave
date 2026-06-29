@@ -35,3 +35,15 @@ Each variant ships a matching system-color icon. Pass your own with the
   <AlertDescription>Any icon works here.</AlertDescription>
 </Alert>
 ```
+
+## API Reference
+
+### Alert
+
+| Prop        | Type                                                   | Default     |
+| ----------- | ------------------------------------------------------ | ----------- |
+| `variant`   | `"default" \| "destructive" \| "success" \| "warning"` | `"default"` |
+| `icon`      | `ReactNode`                                            | —           |
+| `className` | `string`                                               | —           |
+
+Pass `icon={null}` to hide the leading icon. `AlertTitle` and `AlertDescription` accept `children` and `className`.

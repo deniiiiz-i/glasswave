@@ -21,42 +21,15 @@ import { Button } from "glasswave";
 <Button variant="default" size="md">Button</Button>
 ```
 
-### Size
+## API Reference
 
-```tsx
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
-```
+### Button
 
-### Default
+| Prop        | Type                                                 | Default     |
+| ----------- | ---------------------------------------------------- | ----------- |
+| `variant`   | `"default" \| "outline" \| "glass" \| "destructive"` | `"default"` |
+| `size`      | `"sm" \| "md" \| "lg" \| "icon"`                     | `"md"`      |
+| `asChild`   | `boolean`                                            | `false`     |
+| `className` | `string`                                             | —           |
 
-```tsx
-<Button>Default</Button>
-```
-
-### Outline
-
-```tsx
-<Button variant="outline">Outline</Button>
-```
-
-### Glass
-
-```tsx
-<Button variant="glass">Glass</Button>
-```
-
-### Destructive
-
-```tsx
-<Button variant="destructive">Destructive</Button>
-```
-
-### Icons
-
-```tsx
-<Button size="icon" aria-label="Settings">
-  ⚙️
-</Button>
-```
+Accepts all standard `<button>` attributes.
