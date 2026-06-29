@@ -24,15 +24,15 @@ import { DatePicker } from "glasswave";
 />
 ```
 
-## Props
+## API Reference
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `date` | `Date \| undefined` | Controlled value |
-| `onDateChange` | `(d?: Date) => void` | Selection callback |
-| `placeholder` | `string` | Empty trigger label |
-| `formatPattern` | `string` | `date-fns` format (default `PPP`) |
-| `align` | Popover align | Passed to `PopoverContent` |
-| `disabled` | `boolean` | Disables trigger |
+### DatePicker
 
-Depends on `date-fns` for display formatting.
+| Prop            | Type                                | Default         |
+| --------------- | ----------------------------------- | --------------- |
+| `date`          | `Date`                              | —               |
+| `onDateChange`  | `(date: Date \| undefined) => void` | —               |
+| `placeholder`   | `string`                            | `"Pick a date"` |
+| `align`         | `"start" \| "center" \| "end"`      | —               |
+| `formatPattern` | `string`                            | —               |
+| `disabled`      | `boolean`                           | `false`         |

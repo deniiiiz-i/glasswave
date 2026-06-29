@@ -24,12 +24,17 @@ import {
 } from "glasswave";
 ```
 
-## Props
+## API Reference
 
-| Prop | Element | Notes |
-|------|---------|--------|
-| `asChild` | `Item` | Merge styles onto child via `Slot` |
-| `variant` | `Item` | `"default"` \| `"glass"` |
-| `variant` | `ItemMedia` | `"icon"` \| `"image"` |
+### Item
 
-`ItemActions` is a shrink-0 container for trailing buttons.
+| Prop      | Type                   | Default     |
+| --------- | ---------------------- | ----------- |
+| `variant` | `"default" \| "glass"` | `"default"` |
+| `asChild` | `boolean`              | `false`     |
+
+### ItemMedia
+
+| Prop      | Type                | Default  |
+| --------- | ------------------- | -------- |
+| `variant` | `"icon" \| "image"` | `"icon"` |

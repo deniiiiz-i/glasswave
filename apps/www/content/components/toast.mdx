@@ -21,27 +21,13 @@ import { Toast } from 'glasswave';
 <Toast message="Saved successfully" type="default" />
 ```
 
-## Variants
+## API Reference
 
-```tsx
-<Toast message="Changes saved successfully!" type="default" />
-```
+### Toast
 
-```tsx
-<Toast message="Something went wrong!" type="error" />
-```
-
-## Position
-
-Use the `position` prop to control where the toast appears on the screen. Default duration is 5 seconds.
-
-```tsx
-<Toast message="Top left" position="top-left" />
-<Toast message="Top center" position="top-center" />
-<Toast message="Top right" position="top-right" />
-<Toast message="Bottom left" position="bottom-left" />
-<Toast message="Bottom center" position="bottom-center" />
-<Toast message="Bottom right" position="bottom-right" />
-```
-
-Available values: `"top-left"` | `"top-center"` | `"top-right"` | `"bottom-left"` | `"bottom-center"` | `"bottom-right"`
+| Prop       | Type                                                                                              | Default       |
+| ---------- | ------------------------------------------------------------------------------------------------- | ------------- |
+| `message`  | `string`                                                                                          | —             |
+| `type`     | `"default" \| "error"`                                                                            | `"default"`   |
+| `duration` | `number`                                                                                          | `5000`        |
+| `position` | `"top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right"` | `"top-right"` |

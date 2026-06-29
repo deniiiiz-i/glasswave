@@ -31,14 +31,15 @@ import {
 </Carousel>
 ```
 
-## API
+## API Reference
 
-| Export | Description |
-|--------|-------------|
-| `Carousel` | Root; props: `opts` (Embla options), `plugins`, `orientation`, `setApi` |
-| `CarouselContent` | Viewport + track |
-| `CarouselItem` | Slide (`basis-full`) |
-| `CarouselPrevious` / `CarouselNext` | Icon buttons |
-| `useCarousel()` | `{ api, scrollPrev, scrollNext, canScrollPrev, canScrollNext }` |
+Built on [Embla Carousel](https://www.embla-carousel.com/api/).
 
-`setApi` receives the Embla API for imperative control (autoplay, sync, etc.).
+### Carousel
+
+| Prop          | Type                         | Default        |
+| ------------- | ---------------------------- | -------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `opts`        | `CarouselOptions`            | —              |
+| `plugins`     | `CarouselPlugins`            | —              |
+| `setApi`      | `(api: CarouselApi) => void` | —              |

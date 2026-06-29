@@ -41,6 +41,14 @@ const config = {
 
 `ChartContainer` sets `--color-{key}` from `config` and wraps children in `ResponsiveContainer`.
 
-## Re-exports
+## API Reference
 
-`Area`, `AreaChart`, `Line`, `LineChart`, `Legend`, `Cell`, `XAxis`, `YAxis`, `CartesianGrid`, `ChartTooltip` (Recharts `Tooltip`), and `ResponsiveContainer` are exported from `glasswave` for advanced layouts.
+Built on [Recharts](https://recharts.org).
+
+### ChartContainer
+
+| Prop     | Type          | Default |
+| -------- | ------------- | ------- |
+| `config` | `ChartConfig` | —       |
+
+`ChartConfig` is `Record<string, { label?: ReactNode; color?: string }>`.

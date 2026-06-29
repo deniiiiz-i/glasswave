@@ -24,16 +24,18 @@ const options: ComboboxOption[] = [
 <Combobox options={options} value={value} onValueChange={setValue} />
 ```
 
-## Props (`Combobox`)
+## API Reference
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `options` | `ComboboxOption[]` | `value`, `label`, optional `keywords` for cmdk filter |
-| `value` | `string \| null` | Selected value |
-| `onValueChange` | `(v: string \| null) => void` | Change handler |
-| `placeholder` | `string` | Trigger label when empty |
-| `searchPlaceholder` | `string` | Command input hint |
-| `emptyText` | `string` | Empty state copy |
-| `disabled` | `boolean` | Disables trigger |
+### Combobox
 
-For full control, compose `Popover`, `Button`, and `Command` manually (see Command docs).
+| Prop                | Type                              | Default     |
+| ------------------- | --------------------------------- | ----------- |
+| `options`           | `ComboboxOption[]`                | —           |
+| `value`             | `string \| null`                  | —           |
+| `onValueChange`     | `(value: string \| null) => void` | —           |
+| `placeholder`       | `string`                          | `"Select…"` |
+| `searchPlaceholder` | `string`                          | —           |
+| `emptyText`         | `string`                          | —           |
+| `disabled`          | `boolean`                         | `false`     |
+
+`ComboboxOption` is `{ value: string; label: string; keywords?: string[] }`.

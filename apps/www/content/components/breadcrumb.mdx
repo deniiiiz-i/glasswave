@@ -26,14 +26,12 @@ import {
 
 Compose with `Breadcrumb` as the outer `nav`, an ordered `BreadcrumbList`, and items. Use `BreadcrumbPage` for the non-link current page. `BreadcrumbLink` supports `asChild` with `Slot` to render framework links (e.g. Next.js `Link`).
 
-## Components
+## API Reference
 
-| Export | Role |
-|--------|------|
-| `Breadcrumb` | `nav` with `aria-label="breadcrumb"` |
-| `BreadcrumbList` | `ol` list container |
-| `BreadcrumbItem` | `li` wrapper |
-| `BreadcrumbLink` | Link; `asChild` to compose |
-| `BreadcrumbPage` | Current page (not interactive) |
-| `BreadcrumbSeparator` | Visual separator (default chevron) |
-| `BreadcrumbEllipsis` | Collapsed trail affordance |
+### BreadcrumbLink
+
+| Prop      | Type      | Default |
+| --------- | --------- | ------- |
+| `asChild` | `boolean` | `false` |
+
+All other parts render their semantic element (`nav` / `ol` / `li` / `span`) and accept its native attributes.

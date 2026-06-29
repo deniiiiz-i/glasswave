@@ -30,12 +30,14 @@ const columns: ColumnDef<MyRow>[] = [
 <DataTable columns={columns} data={rows} enableSorting />
 ```
 
-## Props
+## API Reference
 
-| Prop | Type | Default |
-|------|------|---------|
-| `columns` | `ColumnDef<TData, TValue>[]` | required |
-| `data` | `TData[]` | required |
-| `enableSorting` | `boolean` | `true` |
+Built on [TanStack Table](https://tanstack.com/table).
 
-`dataTableSortHeader` renders a compact glass `Button` with sort icons. Turn off `enableSorting` for static tables.
+### DataTable
+
+| Prop            | Type                         | Default |
+| --------------- | ---------------------------- | ------- |
+| `columns`       | `ColumnDef<TData, TValue>[]` | —       |
+| `data`          | `TData[]`                    | —       |
+| `enableSorting` | `boolean`                    | `true`  |

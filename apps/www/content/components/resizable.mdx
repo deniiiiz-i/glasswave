@@ -27,12 +27,18 @@ import {
 </ResizablePanelGroup>
 ```
 
-## API
+## API Reference
 
-| Export | Maps to library |
-|--------|-----------------|
-| `ResizablePanelGroup` | `Group` |
-| `ResizablePanel` | `Panel` |
-| `ResizableHandle` | `Separator` |
+Built on [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels).
 
-`ResizableHandle` supports `withHandle` to show a grip. Pass `orientation` to the group (`horizontal` \| `vertical`). See [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) for `defaultLayout`, `onLayoutChanged`, `collapsible`, etc.
+### ResizablePanelGroup
+
+| Prop          | Type                         | Default        |
+| ------------- | ---------------------------- | -------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+
+### ResizableHandle
+
+| Prop         | Type      | Default |
+| ------------ | --------- | ------- |
+| `withHandle` | `boolean` | `false` |
